@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 class KlaytonGato extends Component {
   render() {
-    return <div>Klayton Gato!</div>;
+    return <div>{this.props.name} is {this.props.adjective}!</div>;
   }
 }
 
-ReactDOM.render(<KlaytonGato />, document.querySelector('#app'));
+export default KlaytonGato;
