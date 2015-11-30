@@ -14,6 +14,12 @@
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "cli": "^0.9.0",
+    "jsonfile": "^2.2.1",
+    "metalsmith": "^1.7.0",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-glob-meta": "^1.0.2",
+    "metalsmith-prompt": "0.0.8",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.1",
     "webpack": "^1.12.6"
