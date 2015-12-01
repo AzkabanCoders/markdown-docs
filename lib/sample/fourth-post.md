@@ -1,7 +1,10 @@
 ---
-title: My Fourth Post
+title: Alisson
 date: 2012-12-07
-template: post.html
+device: desktop, tablet
+script: myscript.js
+section: buttons
+opa: teste
 ---
 
-A really short, rushed-feeling string of words.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam aspernatur et natus saepe fugiat, eligendi veniam temporibus accusamus molestiae expedita unde? Totam necessitatibus odit consequatur fugit voluptatem, accusamus qui, voluptas.
