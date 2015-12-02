@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/ui-Header';
+import Header from './components/ui-Header/header';
+import Sidebar from './components/ui-Sidebar/sidebar';
+import MainContent from './components/ui-MainContent/main-content';
 
+// Styles
+import css from './styles/_main';
 
 class App extends Component {
-  log() {
-      console.log("aaaa");
-  }
 
   render() {
     return (
-      <Header />
+      <div>
+        <div className="wrapper">
+          <Header id="header" />
+          <Sidebar id="menu-left" translate="left" className="menu-left" >
+            sidebar
+          </Sidebar>
+          <MainContent />
+        </div>
+      </div>
     );
   }
 }
 
-App.log();
 
-ReactDOM.render(<Header />, document.querySelector('#app'));
+ReactDOM.render(<App />, document.querySelector('#app'));

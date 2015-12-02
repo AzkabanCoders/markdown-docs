@@ -1,6 +1,6 @@
 module.exports = {
   entry: {
-    app: ['./app/main']
+    app: ["./app/main"]
   },
   output: {
     path: "./app",
@@ -22,12 +22,23 @@ module.exports = {
         loader: 'babel',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+          presets: [
+            'es2015',
+            'react'
+          ]
         }
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css?sourceMap", "sass?sourceMap"]
+        loaders: [
+          "style",
+          "css?sourceMap",
+          "sass?sourceMap"
+        ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'file-loader'
       }
     ]
   }

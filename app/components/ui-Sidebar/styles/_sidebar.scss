@@ -1,0 +1,9 @@
+@import "app/styles/base";
+
+.sidebar {
+  position: absolute;
+  width: $sidebar-width;
+  height: $sidebar-height;  
+  background-color: $color-white;
+  border-left: 1px solid $color-azure;
+}
