@@ -1,0 +1,13 @@
+@import "app/styles/base";
+
+header {
+  height: $header-height;
+  width: $header-width;
+  background-color: $color-mariner;
+  border-bottom: 1px solid $color-azure;
+  position: relative;
+  z-index: 99;
+  h1 {
+    margin: 0;
+  }
+}

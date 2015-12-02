@@ -1,0 +1,27 @@
+@import "app/styles/base";
+
+.main-content {
+  padding: 30px;
+  background: $color-seashell;
+  box-shadow: 0 0 5px rgba(0,0,0,0.12);
+  transform: translate3d(18%,0,0);
+  transition: transform .3s;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+
+  &.left {
+    transform: translate3d($main-content-translate,0,0);
+  }
+  &.right {
+    transform: translate3d($main-content-translate,0,0);
+  }
+  &.top {
+    transform: translate3d($main-content-translate,0,0);
+  }
+  &.bottom {
+    transform: translate3d($main-content-translate,0,0);
+  }
+}
