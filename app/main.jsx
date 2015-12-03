@@ -5,7 +5,8 @@ import Sidebar from './components/ui-Sidebar/sidebar';
 import MainContent from './components/ui-MainContent/main-content';
 
 // Styles
-import css from './styles/_main';
+import style_main from './styles/_main';
+import style_appName from './styles/commons/_app-name';
 
 class App extends Component {
 
@@ -15,7 +16,9 @@ class App extends Component {
         <div className="wrapper">
           <Header id="header" />
           <Sidebar id="menu-left" translate="left" className="menu-left" >
-            sidebar
+            <div id="app-name" className="app-name">
+                Webstore.styleguide
+            </div>
           </Sidebar>
           <MainContent />
         </div>
