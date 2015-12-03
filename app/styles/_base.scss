@@ -1,11 +1,16 @@
 @import "colors";
 
-$bg-color: $color-seashell;
+$bg-color: $color-alabaster;
+$base-bg-color: $color-black-haze;
+$base-font-color: $color-black;
+$base-border-color: $color-black-12;
 //  Header
 $header-height: 60px;
 $header-width: 100%;
 // Sidebar
 $sidebar-width: 18%;
 $sidebar-height: auto;
+$sidebar-max-width: 320px;
+$sidebar-min-width: 230px;
 //  Main
 $main-content-translate: 18%;

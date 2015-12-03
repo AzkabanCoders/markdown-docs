@@ -15,12 +15,14 @@ class App extends Component {
       <div>
         <div className="wrapper">
           <Header id="header" />
-          <Sidebar id="menu-left" translate="left" className="menu-left" >
-            <div id="app-name" className="app-name">
-                Webstore.styleguide
-            </div>
-          </Sidebar>
-          <MainContent />
+          <div className="wrapper flex-row">
+            <Sidebar id="menu-left" className="menu-left left" >
+              <div id="app-name" className="app-name">
+                  Webstore.styleguide
+              </div>
+            </Sidebar>
+            <MainContent />
+          </div>
         </div>
       </div>
     );

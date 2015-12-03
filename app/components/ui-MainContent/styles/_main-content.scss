@@ -1,10 +1,20 @@
 @import "app/styles/base";
 
+.sidebar.left + .main-content{
+  border-left: 0;
+}
+.sidebar.right + .main-content{
+  border-right: 0;
+}
+
 .main-content {
+  min-width: 82%;
   padding: 30px;
-  background: $color-alabaster;
-  border-left: 1px solid rgba(0,0,0,0.12);
-  transform: translate3d(18%,0,0);
+  background: $base-bg-color;
+  border-left: 1px solid $base-border-color;
+  border-right: 1px solid $base-border-color;
+  border-bottom: 1px solid $base-border-color;
+  transform: translate3d(0,0,0);
   transition: transform .3s;
   -moz-box-flex: 1;
   -webkit-flex: 1;
