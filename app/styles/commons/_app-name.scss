@@ -1,0 +1,10 @@
+@import "app/styles/base";
+
+.app-name {
+  background-color: $color-alabaster;
+  padding: 15px 10px;
+  border-bottom: 1px solid $color-black-12;
+  font-size: 18px;
+  font-weight: 400;
+  color: $color-black;
+}
