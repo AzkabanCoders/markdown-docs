@@ -2,8 +2,8 @@
 
 .main-content {
   padding: 30px;
-  background: $color-seashell;
-  box-shadow: 0 0 5px rgba(0,0,0,0.12);
+  background: $color-alabaster;
+  border-left: 1px solid rgba(0,0,0,0.12);
   transform: translate3d(18%,0,0);
   transition: transform .3s;
   -moz-box-flex: 1;
