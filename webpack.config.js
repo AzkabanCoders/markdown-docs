@@ -1,3 +1,6 @@
+"use strict";
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
   entry: {
     app: ["./app/main"]
@@ -30,16 +33,17 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: [
-          "style",
-          "css?sourceMap",
-          "sass?sourceMap"
-        ]
+        loader: ExtractTextPlugin.extract('css!sass')
       },
       {
         test: /\.svg$/,
         loader: 'file-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('app.css', {
+      allChunks: true
+    })
+  ]
 };
