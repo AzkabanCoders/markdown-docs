@@ -1,9 +1,18 @@
 @import "app/styles/base";
 
 .sidebar {
-  position: absolute;
   width: $sidebar-width;
   height: $sidebar-height;
+  max-width: $sidebar-max-width;
+  min-width: $sidebar-min-width;
   background-color: $color-white;
-  border-left: 1px solid $color-azure;  
+  border-left: 1px solid $base-border-color;
+  border-right: 1px solid $base-border-color;
+  border-bottom: 1px solid $base-border-color;
+  transition: transform .3s;
+  -moz-box-flex: 2;
+  -webkit-flex: 2;
+  -moz-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
 }
