@@ -14,6 +14,7 @@ import style_appName from './styles/commons/_app-name';
 class App extends Component {
 
   render() {
+    let menu = [];
     return (
       <div>
         <div className="wrapper">
@@ -23,7 +24,7 @@ class App extends Component {
               <div id="app-name" className="app-name">
                   Webstore.styleguide
               </div>
-              <MenuVertical className="menu-list vertical" />
+              <MenuVertical className="menu-list vertical" menu={menu} />
             </Sidebar>
             <MainContent />
           </div>
