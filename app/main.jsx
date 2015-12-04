@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/ui-Header/header';
 import Sidebar from './components/ui-Sidebar/sidebar';
+import MenuVertical from './components/ui-MenuVertical/menu-vertical';
 import MainContent from './components/ui-MainContent/main-content';
 
 // Styles
@@ -18,10 +19,11 @@ class App extends Component {
         <div className="wrapper">
           <Header id="header" />
           <div className="wrapper flex-row">
-            <Sidebar id="menu-left" className="menu-left left" >
+            <Sidebar id="side-bar-menu-left" className="menu-left left" >
               <div id="app-name" className="app-name">
                   Webstore.styleguide
               </div>
+              <MenuVertical className="menu-list vertical" />
             </Sidebar>
             <MainContent />
           </div>
