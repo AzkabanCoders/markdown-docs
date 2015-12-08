@@ -8,7 +8,7 @@
 }
 
 .main-content {
-  min-width: 82%;
+  max-width: $main-content-max-width;
   padding: 30px;
   background: $base-bg-color;
   border-left: 1px solid $base-border-color;
