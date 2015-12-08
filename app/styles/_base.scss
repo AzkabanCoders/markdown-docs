@@ -1,16 +1,29 @@
 @import "colors";
 
-$bg-color: $color-alabaster;
-$base-bg-color: $color-black-haze;
+$bg-color: $color-black-haze;
+$base-bg-color: $color-alabaster;
 $base-font-color: $color-black;
 $base-border-color: $color-black-12;
+
 //  Header
 $header-height: 60px;
 $header-width: 100%;
+
 // Sidebar
 $sidebar-width: 18%;
 $sidebar-height: auto;
-$sidebar-max-width: 320px;
-$sidebar-min-width: 230px;
+$sidebar-max-width: 300px;
+$sidebar-min-width: 220px;
+$sidebar-bg-color: $color-black-haze;
+
+// App name
+$app-name-bg-color: $sidebar-bg-color;
+$app-name-font-color: $color-nobel;
+
+// Menu vertical
+$menu-vertical-title-font-size: 20px;
+$menu-vertical-item-font-size: 16px;
+
 //  Main
 $main-content-translate: 18%;
+$main-content-max-width: 1050px;

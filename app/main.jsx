@@ -12,9 +12,7 @@ import style_main from './styles/_main';
 import style_appName from './styles/commons/_app-name';
 
 class App extends Component {
-
   render() {
-    let menu = [];
     return (
       <div>
         <div className="wrapper">
@@ -24,15 +22,17 @@ class App extends Component {
               <div id="app-name" className="app-name">
                   Webstore.styleguide
               </div>
-              <MenuVertical className="menu-list vertical" menu={menu} />
+              <MenuVertical className="menu-list vertical" />
+              <MenuVertical className="menu-list vertical" />
             </Sidebar>
-            <MainContent />
+            <MainContent>
+              {this.props.content}
+            </MainContent>
           </div>
         </div>
       </div>
     );
   }
 }
-
 
 ReactDOM.render(<App />, document.querySelector('#app'));
