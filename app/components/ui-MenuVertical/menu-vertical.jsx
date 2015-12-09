@@ -1,55 +1,54 @@
 "use strict";
 
-import React, { Component } from 'react';
-import Store from "../../stores/menu-store";
+import React, { Component } from "react";
+import Constants from "../../constants/"
 import css from './styles/_menu-vertical';
 
-let MenuStore = new Store();
+var MenuStore = require("../../stores/MenuStore");
+var MenuActions = require("../../actions/MenuActions");
 
-function getStateFromStore() {
-  return {
-    menu: MenuStore.getAll()
+var mountMenu = (obj) => {
+  let builtMenu = [];
+  for (var i = 0; i < obj.length; i++) {
+    builtMenu[obj[i].section] = builtMenu[obj[i].section] || [];
+    builtMenu[obj[i].section].push(obj[i]);
   }
+  return builtMenu;
 }
 
 class MenuVertical extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapsed: false
+      menu: {
+        items: MenuStore.getMenu()
+      }
     };
-    this.state = getStateFromStore();
-  }
-  onChange() {
-    this.setState(getStateFromStore());
-  }
-  // getInitialState() {
-  //   return getStateFromStore();
-  // }
-  componentDidMount() {
-    MenuStore.addChangeListener(this.onChange);
-  }
-  componentWillUnmount() {
-    MenuStore.removeChangeListener(this.onChange);
   }
 
   render() {
-    var menuItems = this.state.menu.map(function(menu, index) {
-      return (
-        <li className='menu-item'  key={'menu-item-' + index}>
-          <a href="#">{menu}</a>
-        </li>
-      )
-    });
+    var completeMenu = mountMenu(this.state.menu.items),
+        menu = Object.keys(completeMenu).map(function(section, i) {
+          var menuItems = completeMenu[section].map(function(menu, i) {
+            return (
+              <li className='menu-item'  key={'menu-item-' + i}>
+                <a href={Constants.APP_BASEPATH + menu.section + "/" + menu.id}>{menu.label}<span>{menu.lastUpdate}</span></a>
+              </li>
+            )
+          });
+          return (
+            <li>
+              <h3>{section}</h3>
+              <ul>
+                {menuItems}
+              </ul>
+            </li>
+          )
+        });
 
     return (
       <ul id={this.props.id} className={"menu-list " + this.props.className}>
-        <li>
-          <h3>Menu title</h3>
-          <ul>
-            {menuItems}
-          </ul>
-        </li>
+        {menu}
       </ul>
     );
   }

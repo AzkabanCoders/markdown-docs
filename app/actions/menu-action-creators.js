@@ -3,7 +3,7 @@
 import AppDispatcher from "../dispatcher/app-dispatcher";
 
 module default {
-  creatMenu: function(comment) {
+  createMenu: function(menu) {
     var action = {
       actionType: "CREATE_VERTICAL-MENU",
       menu: menu

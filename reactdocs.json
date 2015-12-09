@@ -2,5 +2,6 @@
   "cwd": "./",
   "source": "lib/sample",
   "filePattern": "**/*.md",
-  "destination": "app/build"
+  "destination": "app/build",
+  "distData": "app/resources/data.json"
 }
