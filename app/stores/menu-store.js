@@ -30,7 +30,6 @@ class MenuStore extends EventEmitter {
     return menu;
   }
 }
-  console.log(MenuStore);
 
 AppDispatcher.register(function(action) {
   switch(action.actionType) {
