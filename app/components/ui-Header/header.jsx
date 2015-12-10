@@ -5,7 +5,6 @@ import css from "./styles/_header";
 import ImageLoader from "../ui-Utils/image-loader";
 
 class Header extends Component {
-
   render() {
     return (
       <header id={this.props.id}>
