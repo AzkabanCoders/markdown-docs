@@ -34,7 +34,7 @@ class App extends Component {
               <div id="app-name" className="app-name">
                   Webstore.styleguide{this.state.data}
               </div>
-              <MenuVertical className="menu-list vertical" data={[1,2]} />
+              <MenuVertical className="menu-list vertical" />
             </Sidebar>
             <MainContent>
               {this.props.content}
