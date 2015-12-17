@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Constants from "../../constants/"
 import css from './styles/_menu-vertical';
 
-var MenuStore = require("../../stores/MenuStore");
+var MenuStore = require("../../stores/AppStore");
 var MenuActions = require("../../actions/MenuActions");
 
 var mountMenu = (obj) => {
@@ -32,7 +32,7 @@ class MenuVertical extends Component {
           var menuItems = completeMenu[section].map(function(menu, i) {
             return (
               <li className='menu-item'  key={'menu-item-' + i}>
-                <a href={Constants.APP_BASEPATH + menu.section + "/" + menu.id}>{menu.label}<span>{menu.lastUpdate}</span></a>
+                <a href={"/#/component/" + menu.id}>{menu.label}<span>{menu.lastUpdate}</span></a>
               </li>
             )
           });
