@@ -11,16 +11,11 @@ import MainContent from './components/ui-MainContent/main-content';
 import style_main from './styles/_main';
 import style_appName from './styles/commons/_app-name';
 
-class App extends Component {
-   constructor(props) {
-     super(props);
-     this.state = {};
-   }
-
-  componentWillMount() {
-    $.get(this.props.source, function(result) {
-      this.state.data="result.data[0].device";
-    }.bind(this));
+class Base extends Component {
+  constructor(props) {
+    super(props);
+    this.children = React.PropTypes.element;
+    this.state = {};
   }
 
   render() {
@@ -32,12 +27,12 @@ class App extends Component {
           <div className="wrapper flex-row">
             <Sidebar id="side-bar-menu-left" className="menu-left left" >
               <div id="app-name" className="app-name">
-                  Webstore.styleguide{this.state.data}
+                  Webstore.styleguide
               </div>
               <MenuVertical className="menu-list vertical" />
             </Sidebar>
             <MainContent>
-              {this.props.content}
+              {this.props.children}
             </MainContent>
           </div>
         </div>
@@ -45,5 +40,4 @@ class App extends Component {
     );
   }
 }
-
-ReactDOM.render(<App source="./resources/data.json"/>, document.querySelector('#app'));
+export default Base;
