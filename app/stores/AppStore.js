@@ -3,7 +3,7 @@
 var alt = require("../utils/alt");
 import constants from "../constants/";
 import MenuActions from "../actions/MenuActions";
-var MenuSource = {};
+var AppSource = {};
 
 var getData = (url) => {
   let data = {};
@@ -26,10 +26,9 @@ var mountMenuItem = (obj) => {
   }
 }
 
-MenuSource = getData(constants.API_MENU_ENDPOINT);
+AppSource = getData(constants.API_ENDPOINT);
 
-class MenuStore {
-
+class AppStore {
   constructor() {
     this.menu = [];
     this.errorMessage = null;
@@ -41,10 +40,11 @@ class MenuStore {
     });
 
     this.exportPublicMethods({
-      getMenu: this.getMenu
+      getMenu: this.getMenu,
+      getData: this.getData
     });
 
-    this.exportAsync(MenuSource);
+    this.exportAsync(AppSource);
   }
 
   handleUpdateMenu(menu) {
@@ -62,15 +62,29 @@ class MenuStore {
 
   getMenu(id) {
     let menu = [];
-    for (let i = 0; i < MenuSource.data.length; i++) {
-      if (id && MenuSource.data[i].id === id) {
-        return [mountMenuItem(MenuSource.data[i])];
+    for (let i = 0; i < AppSource.data.length; i++) {
+      if (id && AppSource.data[i].id === id) {
+        return [mountMenuItem(AppSource.data[i])];
       } else {
-        menu.push(mountMenuItem(MenuSource.data[i]));
+        menu.push(mountMenuItem(AppSource.data[i]));
       }
     }
     return menu || [];
   }
+
+  getData(id) {
+    if(!id) {
+      return null;
+    }
+    let content = AppSource.data.filter(function(data){
+      if(data.id.toString() === id.toString()) {
+        return data;
+      } else {
+        return undefined;
+      }
+    });    
+    return content[0];
+  }
 }
 
-module.exports = alt.createStore(MenuStore, "MenuStore");
+module.exports = alt.createStore(AppStore, "AppStore");
