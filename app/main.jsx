@@ -1,6 +1,6 @@
 "use strict";
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 // Components
 import Header from './components/ui-Header/header';

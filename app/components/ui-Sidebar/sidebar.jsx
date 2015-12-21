@@ -1,6 +1,6 @@
 "use strict";
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import css from './styles/_sidebar';
 
 class Sidebar extends Component {

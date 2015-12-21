@@ -82,7 +82,7 @@ class AppStore {
       } else {
         return undefined;
       }
-    });    
+    });
     return content[0];
   }
 }
