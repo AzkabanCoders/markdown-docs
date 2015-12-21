@@ -17,6 +17,11 @@ class ComponentPage extends Component {
     this.state = AppStore.getData(nextProps.params.componentId) || {};
   }
 
+  // Updating state
+  componentWillReceiveProps(nextProps) {
+    this.state = AppStore.getData(nextProps.params.componentId) || {};
+  }
+
   // If id is not the same than previous should update the component
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.params.componentId !== this.props.params.componentId;
@@ -31,7 +36,7 @@ class ComponentPage extends Component {
       <Main>
 
         <h2>{this.state.title}</h2>
-        {this.state.contents}
+        <div className="content" dangerouslySetInnerHTML={{__html: this.state.contents}}></div>
       </Main>
     );
   }
