@@ -1,4 +1,6 @@
 {
+  "name": "Webstore.styleguides",
+  "logo": "/images/global/logo.svg",
   "cwd": "./",
   "source": "lib/sample",
   "filePattern": "**/*.md",
