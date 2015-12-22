@@ -5,12 +5,11 @@ import AppStore from './../stores/AppStore';
 
 // Components
 import Main from '../main';
-import Breadcrumb from './ui-Breadcrumb/breadcrumb';
 
 class ComponentPage extends Component {
   constructor(props) {
     super(props);
-    this.state = AppStore.getData(this.props.params.componentId) || {};    
+    this.state = AppStore.getData(this.props.params.componentId) || {};
   }
 
   // Updating state
