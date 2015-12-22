@@ -21,7 +21,7 @@ class MenuItem extends Component {
   render() {
     return (
       <li className='menu-item'>
-        <Link to={Constants.MENU_BASEPATH + this.props.id}>{this.props.label}</Link>
+        <Link to={Constants.MENU_BASEPATH + this.props.section.toLowerCase() + "/" + this.props.id}>{this.props.label}</Link>
       </li>
     );
   }
@@ -35,7 +35,7 @@ class MenuSection extends Component {
         <ul>
           {
             this.props.data.map(function(data) {
-             return <MenuItem key={data.id} id={data.id} label={data.label}/>;
+             return <MenuItem key={data.id} id={data.id} label={data.label} section={data.section}/>;
            })
           }
         </ul>
