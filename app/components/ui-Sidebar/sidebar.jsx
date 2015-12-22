@@ -15,7 +15,7 @@ class Sidebar extends Component {
     let isCollapsed = this.state.collapsed ? "collapsed" : "";
 
     return (
-      <div id={this.props.id} className={"sidebar " + this.props.className + " " + isCollapsed}>
+      <div id={this.props.id} className={"sidebar wrapper " + this.props.className + " " + isCollapsed}>
         {this.props.children}
       </div>
     );

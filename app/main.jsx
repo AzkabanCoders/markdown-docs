@@ -21,20 +21,18 @@ class Base extends Component {
   render() {
 
     return (
-      <div>
-        <div className="wrapper">
-          <Header id="header" />
-          <div className="wrapper flex-row">
-            <Sidebar id="side-bar-menu-left" className="menu-left left" >
-              <div id="app-name" className="app-name">
-                  Webstore.styleguide
-              </div>
-              <MenuVertical className="menu-list vertical" />
-            </Sidebar>
-            <MainContent>
-              {this.props.children}
-            </MainContent>
-          </div>
+      <div className="wrapper">
+        <Header id="header" />
+        <div className="wrapper flex-row">
+          <Sidebar id="side-bar-menu-left" className="menu-left noselect left" >
+            <div id="app-name" className="app-name">
+                Webstore.styleguide
+            </div>
+            <MenuVertical className="menu-list vertical" />
+          </Sidebar>
+          <MainContent>
+            {this.props.children}
+          </MainContent>
         </div>
       </div>
     );

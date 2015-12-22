@@ -7,7 +7,7 @@ import ImageLoader from "../ui-Utils/image-loader";
 class Header extends Component {
   render() {
     return (
-      <header id={this.props.id}>
+      <header id={this.props.id} className='noselect'>
         <h1 className="logo">
           <ImageLoader src="/images/global/logo.svg" href="/" width="170px" height="40" />
         </h1>
