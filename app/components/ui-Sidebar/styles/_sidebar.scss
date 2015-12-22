@@ -1,13 +1,17 @@
 @import "app/styles/base";
 
 .sidebar {
+  flex: 1;
   width: $sidebar-width;
   height: $sidebar-height;
   max-width: $sidebar-max-width;
-  min-width: $sidebar-min-width;
+  min-width: $sidebar-min-width;  
   background-color: $sidebar-bg-color;
   border-left: 1px solid $base-border-color;
   border-right: 1px solid $base-border-color;
   border-bottom: 1px solid $base-border-color;
   transition: transform .3s;
+  &.wrapper {
+    min-width: $sidebar-min-width;
+  }
 }
