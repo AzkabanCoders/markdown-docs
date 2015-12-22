@@ -10,8 +10,7 @@ import Breadcrumb from './ui-Breadcrumb/breadcrumb';
 class ComponentPage extends Component {
   constructor(props) {
     super(props);
-    this.state = AppStore.getData(this.props.params.componentId) || {};
-    console.log(this.props.routes);
+    this.state = AppStore.getData(this.props.params.componentId) || {};    
   }
 
   // Updating state
@@ -35,7 +34,7 @@ class ComponentPage extends Component {
 
   render() {
     return (
-      <Main>        
+      <Main>
         <h2>{this.state.title}</h2>
         <div className="content" dangerouslySetInnerHTML={{__html: this.state.contents}}></div>
       </Main>
