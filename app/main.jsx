@@ -11,6 +11,7 @@ import AppName from './components/ui-Utils/app-name';
 // Styles
 import style_main from './styles/_base';
 import style_appName from './styles/commons/_app-name';
+import style_syntax from './styles/commons/_syntax';
 
 class Base extends Component {
   constructor(props) {

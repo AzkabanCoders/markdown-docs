@@ -1,0 +1,17 @@
+@import "app/styles/settings";
+
+code {
+  margin: 10px 0;
+  border: 1px solid #DEDEDE;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  display: block;
+  background-color: #FFF;
+  line-height: 16px;
+  border-left: 2px solid $color-buttercup;
+  &.hljs {
+    padding: 15px;
+  }
+}
