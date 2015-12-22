@@ -27,37 +27,22 @@ var mountMenuItem = (obj) => {
 }
 
 AppSource = getData(constants.API_ENDPOINT);
+AppSource = {
+  app: AppSource.data.app,
+  data: AppSource.data.data
+}
 
 class AppStore {
   constructor() {
     this.menu = [];
-    this.errorMessage = null;
-
-    this.bindListeners({
-      handleUpdateMenu: MenuActions.UPDATE_MENU,
-      handleFetchMenu: MenuActions.FETCH_MENU,
-      handleMenuFailed: MenuActions.MENU_FAILED
-    });
 
     this.exportPublicMethods({
       getMenu: this.getMenu,
-      getData: this.getData
+      getData: this.getData,
+      getAppOptions: this.getAppOptions
     });
 
     this.exportAsync(AppSource);
-  }
-
-  handleUpdateMenu(menu) {
-    this.menu = menu;
-    this.errorMessage = null;
-  }
-
-  handleFetchMenu() {
-    this.menu = [];
-  }
-
-  handleMenuFailed(errorMessage) {
-    this.errorMessage = errorMessage;
   }
 
   getMenu(id) {
@@ -84,6 +69,10 @@ class AppStore {
       }
     });
     return content[0];
+  }
+
+  getAppOptions() {    
+    return AppSource.app;
   }
 }
 
