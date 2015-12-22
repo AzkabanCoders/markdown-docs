@@ -3,13 +3,14 @@
 import React, {Component} from "react";
 import css from "./styles/_header";
 import ImageLoader from "../ui-Utils/image-loader";
+var AppOptions = require("../../stores/AppStore").getAppOptions();
 
 class Header extends Component {
   render() {
     return (
       <header id={this.props.id} className='noselect'>
         <h1 className="logo">
-          <ImageLoader src="/images/global/logo.svg" href="/" width="170px" height="40" />
+          <ImageLoader src={AppOptions.logo} href="/" height="40" />
         </h1>
       </header>
     );
