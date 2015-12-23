@@ -10,11 +10,7 @@ class ComponentPage extends Component {
   constructor(props) {
     super(props);
     this.state = AppStore.getData(this.props.params.componentId) || {};
-  }
-
-  // Updating state
-  componentWillReceiveProps(nextProps) {
-    this.state = AppStore.getData(nextProps.params.componentId) || {};
+    $(document).trigger("applyHighlight");
   }
 
   // Updating state
@@ -29,6 +25,7 @@ class ComponentPage extends Component {
 
   componentDidUpdate() {
     this.state = AppStore.getData(this.props.params.componentId) || {};
+    $(document).trigger("applyHighlight");
   }
 
   render() {
