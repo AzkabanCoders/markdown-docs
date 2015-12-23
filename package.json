@@ -6,8 +6,16 @@
   "author": "Klayton Faria <klayton.souza@gmail.com>",
   "license": "ISC",
   "scripts": {
-    "start": "node lib/build && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --inline",
-    "lint": "eslint . --ext .js --ext .jsx"
+    "parseMarkdown": "node lib/build",
+    "start": "node lib/build && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
+    "lint": "eslint . --ext .js --ext .jsx",
+    "watch": "node node_modules/npm-watch/cli.js"
+  },
+  "watch": {
+    "parseMarkdown": {
+      "patterns": ["**/*"],
+      "extensions": "md"
+    }
   },
   "devDependencies": {
     "babel-core": "^6.2.4",
@@ -25,6 +33,7 @@
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-prompt": "0.0.8",
     "node-sass": "^3.4.2",
+    "npm-watch": "0.0.2",
     "sass-loader": "^3.1.2",
     "webpack": "^1.12.9"
   },
