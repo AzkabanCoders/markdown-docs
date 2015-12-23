@@ -3,7 +3,7 @@
     <head>
         <title>React + webpack = X)</title>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="/utils/highlight/highlight.css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="/utils/highlight/highlight.css" charset="utf-8">
         <link rel="stylesheet" href="/app.css" media="screen" charset="utf-8">
     </head>
     <body>
@@ -12,9 +12,12 @@
         <script src="/utils/highlight/highlight.js"></script>
         <script src="app.js"></script>
         <script>
+        $(document).on("applyHighlight", function(){
           $("code").each(function(i, block) {
             hljs.highlightBlock(block)
           })
+        });
+        $(document).trigger("applyHighlight");
         </script>
     </body>
 </html>
