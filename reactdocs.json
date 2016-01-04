@@ -1,9 +1,8 @@
 {
   "name": "Webstore.styleguides",
   "logo": "/images/global/logo.svg",
-  "cwd": "./",
-  "source": "lib/sample",
+  "cwd": "/Users/kfaria/Sites/walmart/reactdocs/",
+  "src": "lib/sample",
   "filePattern": "**/*.md",
-  "destination": "app/build",
-  "distData": "app/resources/data.json"
+  "dist": "/Users/kfaria/Sites/walmart/reactdocs/app/resources/datas.json"
 }
