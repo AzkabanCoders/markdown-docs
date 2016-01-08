@@ -1,6 +1,6 @@
 "use strict";
 
-import alt from "../utils/alt";
+import alt from "../utils/vendor/alt/alt";
 
 class MenuActions {
   updateMenu(menu) {

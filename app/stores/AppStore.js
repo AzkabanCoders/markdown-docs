@@ -1,6 +1,6 @@
 "use strict";
 
-var alt = require("../utils/alt");
+var alt = require("../utils/vendor/alt/alt");
 import constants from "../constants/";
 import MenuActions from "../actions/MenuActions";
 var AppSource = {};
@@ -71,7 +71,7 @@ class AppStore {
     return content[0];
   }
 
-  getAppOptions() {    
+  getAppOptions() {
     return AppSource.app;
   }
 }
