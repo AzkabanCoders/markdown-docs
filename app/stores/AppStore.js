@@ -14,6 +14,7 @@ var getData = (url) => {
       },
       async: false
   });
+  console.log("aa", data);
   return data;
 }
 
@@ -27,6 +28,7 @@ var mountMenuItem = (obj) => {
 }
 
 AppSource = getData(constants.API_ENDPOINT);
+console.log(AppSource);
 AppSource = {
   app: AppSource.data.app,
   data: AppSource.data.data
