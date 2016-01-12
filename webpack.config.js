@@ -8,7 +8,7 @@ module.exports = {
     vendor: ["react"]
   },
   output: {
-    path: "./app",
+    path: "./app/build",
     filename: "app.js"
   },
   resolve: {

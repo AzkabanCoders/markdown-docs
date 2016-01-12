@@ -5,7 +5,8 @@
       "logo": "/images/global/logo.svg",
       "cwd": "/Users/kfaria/Sites/walmart/reactdocs/",
       "src": "lib/sample",
-      "filePattern": "**/*.md"
+      "filePattern": "**/*.md",
+      "dist": "/Users/kfaria/Sites/walmart/reactdocs/app"
     },
     "data": [
       {
