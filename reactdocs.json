@@ -4,5 +4,5 @@
   "cwd": "/Users/kfaria/Sites/walmart/reactdocs/",
   "src": "lib/sample",
   "filePattern": "**/*.md",
-  "dist": "/Users/kfaria/Sites/walmart/reactdocs/app/resources/data.json"
+  "dist": "/app/walmart-frontend/webstore/docs/reactdocs"
 }
