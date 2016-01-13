@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     path: "./app/build",
-    filename: "app.js"
+    filename: "js/app.js"
   },
   resolve: {
     extensions: ["", ".js", ".jsx", ".scss"]
@@ -32,9 +32,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("app.css", {
+    new ExtractTextPlugin("css/app.css", {
       allChunks: true
     }),
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+    new webpack.optimize.CommonsChunkPlugin("vendor", "js/vendor.bundle.js")
   ]
 };
