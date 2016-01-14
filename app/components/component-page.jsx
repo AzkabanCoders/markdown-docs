@@ -31,7 +31,7 @@ class ComponentPage extends Component {
   render() {
     return (
       <Main>
-        <h2>{this.state.title}</h2>
+        <h2 className="component-name-title">{this.state.title}</h2>
         <div className="content" dangerouslySetInnerHTML={{__html: this.state.contents}}></div>
       </Main>
     );

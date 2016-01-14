@@ -37,4 +37,11 @@
   &.bottom {
     transform: translate3d($main-content-translate,0,0);
   }
+
+  .component-name-title {
+    border-bottom: 1px solid $color-iron;
+    padding-bottom: 5px;
+    font-weight: 300;
+    color: $color-tango;
+  }
 }
