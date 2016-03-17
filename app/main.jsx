@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 // Components
 import Header from './components/ui-Header/header';
 import Sidebar from './components/ui-Sidebar/sidebar';
-import MenuVertical from './components/ui-MenuVertical/menu-vertical';
+import MenuVertical from './components/menu-vertical';
 import MainContent from './components/ui-MainContent/main-content';
 import AppName from './components/ui-Utils/app-name';
 // Styles
