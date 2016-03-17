@@ -2,20 +2,22 @@
 
 import React, {Component} from "react";
 import Constants from "../../constants/"
-import css from './styles/_menu-vertical';
 import { Router, Route, Link} from 'react-router';
+import css from './styles/_menu-vertical';
 
-var MenuStore = require("../../stores/AppStore");
-var MenuActions = require("../../actions/MenuActions");
+import MenuStore from "./stores/MenuStore";
+import MenuActions from "./actions/MenuActions";
 
-var mountMenu = (obj) => {
-  let builtMenu = {};
-  for (var i = 0; i < obj.length; i++) {
-    builtMenu[obj[i].section] = builtMenu[obj[i].section] || [];
-    builtMenu[obj[i].section].push(obj[i]);
-  }
-  return builtMenu;
-}
+// var MenuStore = require("../../stores/AppStore");
+
+// var mountMenu = (obj) => {
+//   let builtMenu = {};
+//   for (var i = 0; i < obj.length; i++) {
+//     builtMenu[obj[i].section] = builtMenu[obj[i].section] || [];
+//     builtMenu[obj[i].section].push(obj[i]);
+//   }
+//   return builtMenu;
+// }
 
 class MenuItem extends Component {
   render() {
@@ -47,13 +49,25 @@ class MenuSection extends Component {
 class Menu extends Component {
   constructor(props) {
     super(props);
+    // console.log(MenuActions.handleUpdateMenu);
     this.state = {
-      items: MenuStore.getMenu()
+      items: []
     };
   }
 
+  componentDidMount() {
+    console.log("aaa");
+    // MenuActions.fetch();
+    // MenuStore.listen(this.onChange);
+  }
+
+  componentWillUnmount() {
+    // MenuStore.unlisten(this.onChange);
+  }
+
+
   render() {
-    var menuData = mountMenu(this.state.items);
+    var menuData = this.state.items;
     return (
       <ul id={this.props.id} className={"menu-list " + this.props.className}>
         {

@@ -2,7 +2,7 @@
 
 var alt = require("../utils/vendor/alt/alt");
 import constants from "../constants/";
-import MenuActions from "../actions/MenuActions";
+// import MenuActions from "../actions/MenuActions";
 var AppSource = {};
 
 var getData = (url) => {
@@ -14,7 +14,6 @@ var getData = (url) => {
       },
       async: false
   });
-  console.log("aa", data);
   return data;
 }
 
@@ -28,7 +27,6 @@ var mountMenuItem = (obj) => {
 }
 
 AppSource = getData(constants.API_ENDPOINT);
-console.log(AppSource);
 AppSource = {
   app: AppSource.data.app,
   data: AppSource.data.data
