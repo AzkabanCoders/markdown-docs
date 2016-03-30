@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Constants from "./constants/";
 // Components
 import Header from './components/ui-Header/header';
 import Sidebar from './components/ui-Sidebar/sidebar';
@@ -28,7 +29,7 @@ class Base extends Component {
         <div className="wrapper flex-row">
           <Sidebar id="side-bar-menu-left" className="menu-left noselect left" >
             <AppName className="app-name" />
-            <MenuVertical className="menu-list vertical" />
+            <MenuVertical className="menu-list vertical" url={`${Constants.API_HOST}/${Constants.API_MENU_ENDPOINT}`} />
           </Sidebar>
           <MainContent>
             {this.props.children}

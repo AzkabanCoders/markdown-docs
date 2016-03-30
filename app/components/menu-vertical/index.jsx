@@ -1,22 +1,18 @@
 "use strict";
 
 import React, {Component} from "react";
-import Constants from "../../constants/"
 import { Router, Route, Link} from "react-router";
+import Constants from "../../constants/";
+// Styles
 import css from "./styles/_menu-vertical";
 
-var mountMenu = (content) => {
-  let data = content.data.data,
-      menu = [];
-  for (let i = 0; i < data.length; i++) {
-    menu.push({
-      "id": data[i].id,
-      "label": data[i].title,
-      "url": Constants.APP_BASEPATH + data[i].title,
-      "section": data[i].section
-    });
+var mountMenu = (obj) => {
+  let builtMenu = {};
+  for (var i = 0; i < obj.length; i++) {
+    builtMenu[obj[i].section] = builtMenu[obj[i].section] || [];
+    builtMenu[obj[i].section].push(obj[i]);
   }
-  return menu || [];
+  return builtMenu;
 }
 
 class MenuItem extends Component {
@@ -31,14 +27,13 @@ class MenuItem extends Component {
 
 class MenuSection extends Component {
   render() {
-    console.log(this.props);
     return (
       <li>
         <h3>{this.props.label}</h3>
         <ul>
           {
             this.props.data.map(function(result) {
-             return <MenuItem key={result.id} id={result.id} label={result.label} section={result.section}/>;
+             return <MenuItem key={result.id} id={result.id} label={result.title} section={result.section}/>;
            })
           }
         </ul>
@@ -58,17 +53,23 @@ class Menu extends Component {
   fetchMenu(menuUrl) {
     let url = `${menuUrl}`;
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
+      .then((req) => req.json())
+      .then((res) => {
         this.setState({
-          items : mountMenu(data)
+          items : mountMenu(res.data.data)
         });
       })
       .catch((error) => console.log('Oops! . There Is A Problem', error));
   }
 
   componentDidMount() {
-    this.fetchMenu(`${Constants.API_HOST}/${Constants.API_MENU_ENDPOINT}`);
+    if(this.props.url) {
+      this.fetchMenu(this.props.url);
+    } else if(this.props.data) {
+      this.setState({
+        items : this.props.data
+      });
+    }
   }
 
   render() {
@@ -77,7 +78,7 @@ class Menu extends Component {
       <ul id={this.props.id} className={"menu-list " + this.props.className}>
         {
         Object.keys(menuData).map(function(result) {
-           return <MenuSection key={menuData[result].section} label={menuData[result].section} data={menuData}/>;
+           return <MenuSection key={result} label={result} data={menuData[result]}/>;
          })
         }
       </ul>
