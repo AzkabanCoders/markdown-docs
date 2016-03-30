@@ -2,27 +2,27 @@
 
 import React, {Component} from "react";
 import Constants from "../../constants/"
-import { Router, Route, Link} from 'react-router';
-import css from './styles/_menu-vertical';
+import { Router, Route, Link} from "react-router";
+import css from "./styles/_menu-vertical";
 
-import MenuStore from "./stores/MenuStore";
-import MenuActions from "./actions/MenuActions";
-
-// var MenuStore = require("../../stores/AppStore");
-
-// var mountMenu = (obj) => {
-//   let builtMenu = {};
-//   for (var i = 0; i < obj.length; i++) {
-//     builtMenu[obj[i].section] = builtMenu[obj[i].section] || [];
-//     builtMenu[obj[i].section].push(obj[i]);
-//   }
-//   return builtMenu;
-// }
+var mountMenu = (content) => {
+  let data = content.data.data,
+      menu = [];
+  for (let i = 0; i < data.length; i++) {
+    menu.push({
+      "id": data[i].id,
+      "label": data[i].title,
+      "url": Constants.APP_BASEPATH + data[i].title,
+      "section": data[i].section
+    });
+  }
+  return menu || [];
+}
 
 class MenuItem extends Component {
   render() {
     return (
-      <li className='menu-item'>
+      <li className="menu-item">
         <Link to={Constants.MENU_BASEPATH + this.props.section.toLowerCase() + "/" + this.props.id}>{this.props.label}</Link>
       </li>
     );
@@ -31,13 +31,14 @@ class MenuItem extends Component {
 
 class MenuSection extends Component {
   render() {
+    console.log(this.props);
     return (
       <li>
         <h3>{this.props.label}</h3>
         <ul>
           {
-            this.props.data.map(function(data) {
-             return <MenuItem key={data.id} id={data.id} label={data.label} section={data.section}/>;
+            this.props.data.map(function(result) {
+             return <MenuItem key={result.id} id={result.id} label={result.label} section={result.section}/>;
            })
           }
         </ul>
@@ -49,31 +50,34 @@ class MenuSection extends Component {
 class Menu extends Component {
   constructor(props) {
     super(props);
-    // console.log(MenuActions.handleUpdateMenu);
     this.state = {
       items: []
     };
   }
 
+  fetchMenu(menuUrl) {
+    let url = `${menuUrl}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          items : mountMenu(data)
+        });
+      })
+      .catch((error) => console.log('Oops! . There Is A Problem', error));
+  }
+
   componentDidMount() {
-    console.log("aaa");
-    // MenuActions.fetch();
-    // MenuStore.listen(this.onChange);
+    this.fetchMenu(`${Constants.API_HOST}/${Constants.API_MENU_ENDPOINT}`);
   }
-
-  componentWillUnmount() {
-    // MenuStore.unlisten(this.onChange);
-  }
-
 
   render() {
     var menuData = this.state.items;
     return (
       <ul id={this.props.id} className={"menu-list " + this.props.className}>
         {
-        Object.keys(menuData).map(function(data) {
-
-           return <MenuSection key={data} label={data} data={menuData[data]}/>;
+        Object.keys(menuData).map(function(result) {
+           return <MenuSection key={menuData[result].section} label={menuData[result].section} data={menuData}/>;
          })
         }
       </ul>
