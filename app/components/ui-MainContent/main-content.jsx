@@ -6,7 +6,7 @@ import css from './styles/_main-content';
 class MainContent extends Component {
   constructor(props) {
     super(props);
-    this.children = React.PropTypes.element;    
+    this.children = React.PropTypes.element;
     this.state = {
       collapsed: false
     };

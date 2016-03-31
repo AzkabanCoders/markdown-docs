@@ -6,15 +6,6 @@ import Constants from "../../constants/";
 // Styles
 import css from "./styles/_menu-vertical";
 
-var mountMenu = (obj) => {
-  let builtMenu = {};
-  for (var i = 0; i < obj.length; i++) {
-    builtMenu[obj[i].section] = builtMenu[obj[i].section] || [];
-    builtMenu[obj[i].section].push(obj[i]);
-  }
-  return builtMenu;
-}
-
 class MenuItem extends Component {
   render() {
     return (
@@ -27,15 +18,15 @@ class MenuItem extends Component {
 
 class MenuSection extends Component {
   render() {
+    let menuItem = this.props.data.map(function(result) {
+      return <MenuItem key={result.id} id={result.id} label={result.title} section={result.section}/>;
+    });
+
     return (
       <li>
         <h3>{this.props.label}</h3>
         <ul>
-          {
-            this.props.data.map(function(result) {
-             return <MenuItem key={result.id} id={result.id} label={result.title} section={result.section}/>;
-           })
-          }
+          {menuItem}
         </ul>
       </li>
     );
@@ -46,28 +37,14 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: {}
     };
   }
 
-  fetchMenu(menuUrl) {
-    let url = `${menuUrl}`;
-    fetch(url)
-      .then((req) => req.json())
-      .then((res) => {
-        this.setState({
-          items : mountMenu(res.data.data)
-        });
-      })
-      .catch((error) => console.log('Oops! . There Is A Problem', error));
-  }
-
-  componentDidMount() {
-    if(this.props.url) {
-      this.fetchMenu(this.props.url);
-    } else if(this.props.data) {
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.data !== this.props.data) {
       this.setState({
-        items : this.props.data
+        items: this.props.data
       });
     }
   }
