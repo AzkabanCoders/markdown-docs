@@ -6,11 +6,11 @@ import Constants from "./constants/";
 import Utils from "./utils";
 
 // Components
-import Header from './components/ui-Header/header';
-import Sidebar from './components/ui-Sidebar/sidebar';
+import Header from './components/header';
+import Sidebar from './components/sidebar';
 import MenuVertical from './components/menu-vertical';
-import MainContent from './components/ui-MainContent/main-content';
-import AppName from './components/ui-Utils/app-name';
+import MainContent from './components/main-content';
+import AppName from './components/utils/app-name';
 // Styles
 import style_main from './styles/_base';
 import style_appName from './styles/commons/_app-name';

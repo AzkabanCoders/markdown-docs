@@ -2,7 +2,7 @@
 
 import React, {Component} from "react";
 import css from "./styles/_header";
-import ImageLoader from "../ui-Utils/image-loader";
+import ImageLoader from "../utils/image-loader";
 
 class Header extends Component {
   render() {
