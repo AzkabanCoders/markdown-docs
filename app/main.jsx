@@ -21,7 +21,8 @@ class Base extends Component {
     super(props);
     this.children = React.PropTypes.element;
     this.state = {
-      menu: {}
+      menu: {},
+      app: {}
     };
   }
 
@@ -32,7 +33,8 @@ class Base extends Component {
       .then((res) => {
         this.setState({
           menu: Utils.menu.mount(res.data.data),
-          data: res.data.data
+          data: res.data.data,
+          app: res.data.app
         });
       })
       .catch((error) => console.log("Error on fetch menu data: ", error));
@@ -50,10 +52,10 @@ class Base extends Component {
 
     return (
       <div className="wrapper">
-        <Header id="header" />
+        <Header id="header" logo={this.state.app.logo} />
         <div className="wrapper flex-row">
           <Sidebar id="side-bar-menu-left" className="menu-left noselect left" >
-            <AppName className="app-name" />
+            <AppName className="app-name" label={this.state.app.name} />
             <MenuVertical className="menu-list vertical" data={this.state.menu} />
           </Sidebar>
           <MainContent>

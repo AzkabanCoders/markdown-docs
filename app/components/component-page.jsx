@@ -33,8 +33,7 @@ class ComponentPage extends Component {
     return nextProps.params.componentId !== this.props.params.componentId;
   }
 
-  componentDidUpdate() {
-    // this.state = AppStore.getData(this.props.params.componentId) || {};
+  componentDidUpdate() {    
     $(document).trigger("applyHighlight");
   }
 
