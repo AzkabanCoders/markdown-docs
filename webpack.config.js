@@ -28,6 +28,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract("css!sass")
+      },
+      {
+        test: /\.svg$/,
+        loader: "raw-loader"
       }
     ]
   },

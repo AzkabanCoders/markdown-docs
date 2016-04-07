@@ -3,6 +3,7 @@
 import React, {Component} from "react";
 import css from "./styles/_header";
 import ImageLoader from "../utils/image-loader";
+import SearchBox from "../search-box";
 
 class Header extends Component {
   render() {
@@ -11,6 +12,7 @@ class Header extends Component {
         <h1 className="logo">
           <ImageLoader src={this.props.logo} href="/" height="40" />
         </h1>
+        <SearchBox autocomplete={true} />
       </header>
     );
   }
