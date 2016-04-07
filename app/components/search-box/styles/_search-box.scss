@@ -1,0 +1,24 @@
+@import "app/styles/base";
+
+.search-box {
+  width: 40%;
+  float: right;
+  height: 36px;
+  margin: 10px;
+}
+
+.icon {
+  float: right;
+  border: 1px solid #124B8E;
+  display: block;
+  width: 36px;
+  height: 36px;
+  padding: 5px;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #195d9e;
+
+  .SVGInline {
+    float: right;
+  }
+}
