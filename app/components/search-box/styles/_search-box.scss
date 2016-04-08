@@ -1,24 +1,63 @@
 @import "app/styles/base";
 
 .search-box {
-  width: 40%;
   float: right;
-  height: 36px;
-  margin: 10px;
-}
+  height: 58px;
+  // box-shadow: -1px 0px 0px $color-curious-blue, inset 1px 0px 0px $color-azure;
+  padding: 0 10px;
+  text-align: center;
 
-.icon {
-  float: right;
-  border: 1px solid #124B8E;
-  display: block;
-  width: 36px;
-  height: 36px;
-  padding: 5px;
-  border-radius: 30px;
-  overflow: hidden;
-  background-color: #195d9e;
+  .search-wrapper {
+    overflow: auto;
+    position: relative;
+    top: 14px;
+  }
 
-  .SVGInline {
-    float: right;
+  .icon-search {
+    position: absolute;;
+    top: 5px;
+    left: 5px;
+    svg {
+      fill: $color-buttercup;
+    }
+  }
+
+  input[type="search"] {
+    -webkit-appearance: none;
+    height: 30px;
+    width: 200px;
+    background-color: $color-azure;
+    border: 0;
+    border-radius: 30px;
+    color: $color-seashell;
+    font-weight: 100;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    outline-style: none;
+    padding-left: 25px;
+    transition: all .5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+
+    &:focus{
+      width: 330px;
+    }
+
+    &::-webkit-input-placeholder {
+       color: $color-seashell;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+       color: $color-seashell;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+       color: $color-seashell;
+    }
+
+    &:-ms-input-placeholder {
+       color: $color-seashell;
+    }
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    margin-right: 10px;
   }
 }
