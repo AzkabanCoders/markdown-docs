@@ -13,6 +13,10 @@ class ComponentPageContent extends Component {
     super(props);
   }
 
+  componentDidUpdate() {
+    $(document).trigger("applyHighlight");
+  }
+
   render() {
     // Data props comes from Main context
     let data = Utils.content.get(this.props.data, this.props.contentId),
@@ -40,11 +44,8 @@ class ComponentPage extends Component {
     return nextProps.params.componentId !== this.props.params.componentId;
   }
 
-  componentDidUpdate() {
-    $(document).trigger("applyHighlight");
-  }
-
   render() {
+    console.log("render");
     return (
       <Main>
         <ComponentPageContent contentId={this.props.params.componentId}/>
