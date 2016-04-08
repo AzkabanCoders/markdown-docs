@@ -1,0 +1,88 @@
+@import "app/styles/base";
+
+$search-result-box-height: 400px;
+$search-result-box-width: 600px;
+
+.search-box-result {
+  position: absolute;
+  background: $color-seashell-2;
+  border: 1px solid $color-mariner;
+  right: 10px;
+  width: 100%;
+  max-width: $search-result-box-width;
+  top: 53px;
+  border-radius: 2px;
+  box-shadow: -1px 4px 5px 0px $color-nobel;
+  &:after {
+    content: "";
+    border-width: 10px;
+    border-color: transparent transparent $color-alabaster transparent;
+    border-style: solid;
+    position: absolute;
+    top: -20px;
+    right: 304px;
+  }
+  &.hide {
+    display: none; 
+  }
+
+  .search-box-header {
+    background: $color-alabaster;
+    line-height: 15px;
+    margin: 0;
+    text-align: left;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid $color-alto;
+    color: $color-azure;
+  }
+
+  .search-result {
+    max-height: $search-result-box-height;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: left;
+  }
+  .search-result-item {
+    margin: 10px;
+    background-color: $color-alabaster;
+    border: 1px solid $color-iron;
+    border-radius: 1px;
+    font-size: 12px;
+    font-weight: 300;
+    &:hover {
+      cursor: pointer;
+      border: 1px solid $color-tango;
+      .search-result-details {
+        background-color: $color-tango;
+        border-bottom: 1px solid $color-tango;
+        color: $color-alabaster;
+      }
+    }
+
+    .search-result-details {
+      background-color: $color-black-haze;
+      border-bottom: 1px solid #DADADA;
+      padding: 7px;
+      font-weight: 400;
+    }
+
+    .title {
+      display: none;
+    }
+    .description {
+      display: block;
+      margin: 10px;
+
+      .highlight {
+        color: $color-azure;
+        background-color: $color-seashell-2;
+        font-weight: 400;
+      }
+    }
+  }
+}
