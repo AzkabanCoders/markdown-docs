@@ -1,4 +1,4 @@
-@import "app/styles/base";
+@import "app/styles/settings";
 
 $search-result-box-height: 400px;
 $search-result-box-width: 600px;
@@ -23,7 +23,7 @@ $search-result-box-width: 600px;
     right: 304px;
   }
   &.hide {
-    display: none; 
+    display: none;
   }
 
   .search-box-header {
@@ -52,7 +52,7 @@ $search-result-box-width: 600px;
     background-color: $color-alabaster;
     border: 1px solid $color-iron;
     border-radius: 1px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 300;
     &:hover {
       cursor: pointer;
