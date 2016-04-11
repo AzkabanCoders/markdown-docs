@@ -26,6 +26,10 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
 
+  &.page {
+    height: 100vh;
+  }
+
   &.flex-row {
     height: 95vh;
     -webkit-flex-direction: row;
