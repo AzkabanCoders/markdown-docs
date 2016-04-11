@@ -51,7 +51,7 @@ class Base extends Component {
     });
 
     return (
-      <div className="wrapper">
+      <div className="wrapper page">
         <Header id="header" logo={this.state.app.logo} />
         <div className="wrapper flex-row">
           <Sidebar id="side-bar-menu-left" className="menu-left noselect left" >
