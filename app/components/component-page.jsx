@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import Utils from "../utils";
 import Styles from "./utils/styles-loader";
 import Scripts from "./utils/scripts-loader";
+import Highlight from "react-highlight";
 
 // Components
 import Main from '../main';
@@ -14,7 +15,7 @@ class ComponentPageContent extends Component {
   }
 
   componentDidUpdate() {
-    $(document).trigger("applyHighlight");
+    // $(document).trigger("applyHighlight");
   }
 
   render() {
@@ -27,7 +28,10 @@ class ComponentPageContent extends Component {
       <div>
         <Styles data={styles} />
         <h2 className="component-name-title">{data.title}</h2>
-        <div className="content" dangerouslySetInnerHTML={{__html: data.contents}}></div>
+        {/*<div className="content" dangerouslySetInnerHTML={{__html: data.contents}}></div>*/}
+        <Highlight innerHTML={true}>
+          {data.contents}
+        </Highlight>
         <Scripts data={scripts} />
       </div>
     );
@@ -45,7 +49,6 @@ class ComponentPage extends Component {
   }
 
   render() {
-    console.log("render");
     return (
       <Main>
         <ComponentPageContent contentId={this.props.params.componentId}/>
