@@ -64,6 +64,11 @@ $search-result-box-width: 600px;
       }
     }
 
+    a {
+      text-decoration: none;
+      color: $color-shark;
+    }
+
     .search-result-details {
       background-color: $color-black-haze;
       border-bottom: 1px solid #DADADA;
@@ -79,9 +84,10 @@ $search-result-box-width: 600px;
       margin: 10px;
 
       .highlight {
-        color: $color-azure;
-        background-color: $color-seashell-2;
+        color: $color-seashell-2;
+        background-color: $color-azure;
         font-weight: 400;
+        padding: 0 2px;
       }
     }
   }
