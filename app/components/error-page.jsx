@@ -6,7 +6,7 @@ import Main from '../main';
 class ErrorPage extends Component {
   render() {
     return (
-      <Main>Oops! <br/> Página não encontrada.  :( </Main>
+      <Main><div>Oops! <br/> Página não encontrada.  :( </div></Main>
     );
   }
 }

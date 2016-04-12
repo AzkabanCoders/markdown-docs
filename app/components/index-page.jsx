@@ -7,7 +7,7 @@ import Main from '../main';
 class Index extends Component {
   render() {
     return (
-      <Main>Index</Main>
+      <Main><div>Index</div></Main>
     );
   }
 }
