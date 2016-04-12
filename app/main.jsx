@@ -50,9 +50,10 @@ class Base extends Component {
         return React.cloneElement(child, { data: data });
     });
 
+
     return (
       <div className="wrapper page">
-        <Header id="header" logo={this.state.app.logo} />
+        <Header id="header" logo={this.state.app.logo} data={this.state.data} />
         <div className="wrapper flex-row">
           <Sidebar id="side-bar-menu-left" className="menu-left noselect left" >
             <AppName className="app-name" label={this.state.app.name} />
