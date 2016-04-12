@@ -53,6 +53,7 @@
     "history": "^1.17.0",
     "http": "0.0.0",
     "react": "^0.14.5",
+    "react-highlight": "^0.7.0",
     "react-router": "^1.0.3",
     "restful.js": "^0.9.6"
   }
