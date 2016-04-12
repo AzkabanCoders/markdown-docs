@@ -3,22 +3,12 @@
     <head>
         <title>Reactdocs app</title>
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/tomorrow.min.css" charset="utf-8">
+        <link rel="stylesheet" href="https://highlightjs.org/static/demo/styles/github.css" charset="utf-8">
         <link rel="stylesheet" href="css/app.css" media="screen" charset="utf-8">
     </head>
     <body>
-        <div id="app" class="app"></div>
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+        <div id="app" class="app"></div>        
         <script src="js/vendor.bundle.js"></script>
         <script src="js/app.js"></script>
-        <script>
-        $(document).on("applyHighlight", function(){
-          $("code").each(function(i, block) {
-            hljs.highlightBlock(block)
-          })
-        });
-        $(document).trigger("applyHighlight");
-        </script>
     </body>
 </html>
