@@ -47,6 +47,18 @@ $search-result-box-width: 600px;
     list-style: none;
     text-align: left;
   }
+  .no-results {
+    height: 120px;
+    .icon-search {
+      top: 60px;
+      left: 50%;
+      width: 200px;
+      margin-left: -50px;
+    }
+    svg {
+      fill: $color-iron;
+    }
+  }
   .search-result-item {
     margin: 10px;
     background-color: $color-alabaster;
