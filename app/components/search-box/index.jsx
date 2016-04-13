@@ -26,9 +26,6 @@ var getResultText = (text, textSize, terms) => {
   return highlightText(terms, Utils.content.htmlToText(text|| "").substring(0, textSize));
 };
 
-
-
-
 class ResultItem extends Component {
   render() {
     let data = this.props.data,
@@ -53,12 +50,38 @@ class ResultItem extends Component {
 
 
 class Results extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibility: this.props.visibility
+    };
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      visibility: this.props.visibility
+    });
+    var that = this;
+
+    document.getElementsByClassName("search-box-result")[0].onmouseover = function() {
+      that.setState({
+        visibility: true
+      });
+    }
+
+    document.getElementsByClassName("search-box-result")[0].onmouseleave = function() {
+      that.setState({
+        visibility: false
+      });
+    }
+  }
+
   render() {
     var data = this.props.data,
         textSize = this.props.resultTextSize,
         highlightTerms = this.props.highlightTerms,
         nResults = data.length,
-        visibilityClass = this.props.visibility ? "" : "hide";
+        visibilityClass = this.state.visibility ? "" : "hide";
 
     var resultItems = Object.keys(data).map(function(result) {
       return <ResultItem key={`result-item-${result}`} data={data[result]} resultTextSize={textSize} highlightTerms={highlightTerms} />;
