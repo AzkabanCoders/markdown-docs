@@ -6,7 +6,7 @@
       "cwd": "/Users/kfaria/Sites/walmart/reactdocs/",
       "src": "lib/sample",
       "filePattern": "**/*.md",
-      "dist": "/Users/kfaria/Sites/walmart/reactdocs/app/dist"
+      "dist": "/Users/kfaria/Sites/walmart/reactdocs/dist"
     },
     "data": [
       {
