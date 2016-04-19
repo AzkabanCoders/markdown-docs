@@ -1,6 +1,6 @@
 {
   "name": "reactdocs",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A web document tool basead in markdown files data. [react + webpack + es2015 (babel)]",
   "main": "bin/index.js",
   "author": "Klayton Faria <klayton.souza@gmail.com>",
