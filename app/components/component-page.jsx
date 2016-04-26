@@ -9,52 +9,68 @@ import Highlight from "react-highlight";
 
 // Components
 import Main from '../main';
-var teste;
+var IframeContent;
+
+var setIframeContent = (IframeComponent) => {
+  let el = document.createElement("div"),
+      iframe = document.getElementById("content-frame"),
+      iframeBody = iframe.contentWindow.document.body;
+      iframeBody.setAttribute("class", "main-content iframe");
+      iframe.height = 0;
+  // Rendering component on temporary div
+  ReactDOM.render(IframeComponent, el);
+  // Setting iframe content from rendered div's content
+  iframeBody.innerHTML = el.innerHTML;
+  // Clean el (for perf on garbage collector)
+  el =  null;
+  // Setting height of iframe from atual content's height frame
+  setTimeout(() => {
+    let iframeHeight = iframeBody.children[0].offsetHeight;
+    iframe.height = iframeHeight + 20;    
+  }, 50);
+};
+
 class ComponentPageContent extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidUpdate() {
-
-    console.log("init", "componentDidUpdate");
-    var iframe = document.getElementById("content-frame"),
-        iDocument = iframe.contentWindow.document;
-
-
-        iDocument.open();
-        iDocument.write(teste.props.children);
-        iDocument.close();
-        console.log("end","componentDidUpdate");
-
-        // var el = document.createElement("div");
-        // ReactDOM.render(iframeContent, el);
-
-
-      console.log("el", teste.props.children);
-
-
   }
 
   render() {
     // Data props comes from Main context
     let data = Utils.content.get(this.props.data, this.props.contentId),
         styles = data.styles || [],
-        scripts = data.scripts || [],
-        htmlContent = <Highlight innerHTML={true}>{data.contents}</Highlight>;
-          teste = htmlContent;
-        var frame = <iframe id="content-frame" width="100%" frameBorder="0"></iframe>;
+        scripts = data.scripts || [];
+
+        styles = styles.concat([
+            "https://highlightjs.org/static/demo/styles/github.css",
+            "./css/app.css"
+          ]);
+
     return (
       <div>
         <Styles data={styles} />
         <h2 className="component-name-title">{data.title}</h2>
-        {/*<div className="content" dangerouslySetInnerHTML={{__html: data.contents}}></div>*/}
-        <Styles data={styles} />
-        {/*<div id="contents" data-content={htmlContent.props.children}></div>*/}
-        {/*{frame}*/}
-        {htmlContent}
+        <Highlight innerHTML={true}>{data.contents}</Highlight>
         <Scripts data={scripts} />
       </div>
+    );
+  }
+}
+
+
+class ContentIframe extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidUpdate() {
+    setIframeContent(IframeContent);
+  }
+
+  render() {
+    IframeContent =  <ComponentPageContent contentId={this.props.contentId} data={this.props.data}/>
+    return (
+      <iframe id="content-frame" frameBorder={0} scrolling="no" seamless="seamless" width="100%" height="500px"></iframe>
     );
   }
 }
@@ -72,7 +88,7 @@ class ComponentPage extends Component {
   render() {
     return (
       <Main>
-        <ComponentPageContent contentId={this.props.params.componentId}/>
+        <ContentIframe contentId={this.props.params.componentId} />
       </Main>
     );
   }
