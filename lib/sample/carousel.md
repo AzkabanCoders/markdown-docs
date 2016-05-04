@@ -1,165 +1,779 @@
 ---
-section: Elements
-title: carousel
-date: 2012-12-07
-device: desktop, tablet
+section: Grunt
+title: Grunt tasks and modules
+description: All of Grunt tasks and modules used on Webstore app
 ---
 
-An h1 header
-============
+All of our grunt tasks are registered by yaml pattern (founds on /app/walmart-frontend/webstore/config/grunt/aliases.yaml). Follow bellow the table with all registered tasks:
 
-Paragraphs are separated by a blank line.
+# Environment variables
 
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
-look like:
+Some tasks needs of environment variables values to know the target, version or device that should be executed.  
 
-  * this one
-  * that one
-  * the other one
+<table class="confluenceTable">
 
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
+<tbody>
 
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
+<tr>
 
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺
+<th class="confluenceTh">Variable name</th>
 
+<th class="confluenceTh">description</th>
 
+<th colspan="1" class="confluenceTh">applicable values</th>
 
-An h2 header
-------------
+<th colspan="1" class="confluenceTh">default value</th>
 
-Here's a numbered list:
+<th class="confluenceTh">attribution example</th>
 
- 1. first item
- 2. second item
- 3. third item
+</tr>
 
-Note again how the actual text starts at 4 columns in (4 characters
-from the left side). Here's a code sample:
+<tr>
 
-    # Let me re-iterate ...
-    for i in 1 .. 10 { do-something(i) }
+<td class="confluenceTd">env</td>
 
-As you probably guessed, indented 4 spaces. By the way, instead of
-indenting the block, you can use delimited blocks, if you like:
+<td class="confluenceTd">Set current environment </td>
 
-~~~javascript
-var  teste = function(aaa) {
-  console.log(aaaa);
-}
-teste();
-~~~
+<td colspan="1" class="confluenceTd">dev | qa | stg | prod</td>
 
-(which makes copying & pasting easier). You can optionally mark the
-delimited block for Pandoc to syntax highlight it:
+<td colspan="1" class="confluenceTd">qa</td>
 
-~~~python
-import time
-# Quick, count to ten!
-for i in range(10):
-    # (but not *too* quick)
-    time.sleep(0.5)
-    print i
-~~~
+<td class="confluenceTd">--env=dev</td>
 
+</tr>
 
+<tr>
 
-### An h3 header ###
+<td class="confluenceTd">device</td>
 
-Now a nested list:
+<td class="confluenceTd">Set current device</td>
 
- 1. First, get these ingredients:
+<td colspan="1" class="confluenceTd">desktop | mobile</td>
 
-      * carrots
-      * celery
-      * lentils
-      
- 2. Boil some water.
+<td colspan="1" class="confluenceTd">desktop,mobile</td>
 
- 3. Dump everything in the pot and follow
-    this algorithm:
+<td class="confluenceTd">--device=desktop</td>
 
-        find wooden spoon
-        uncover pot
-        stir
-        cover pot
-        balance wooden spoon precariously on pot handle
-        wait 10 minutes
-        goto first step (or shut off burner when done)
+</tr>
 
-    Do not bump wooden spoon or it will fall.
+<tr>
 
-Notice again how text always lines up on 4-space indents (including
-that last line which continues item 3 above).
+<td class="confluenceTd">builderVersion</td>
 
-Here's a link to [a website](http://foo.bar), to a [local
-doc](local-doc.html), and to a [section heading in the current
-doc](#an-h2-header). Here's a footnote [^1].
+<td class="confluenceTd">Set assets package version</td>
 
-[^1]: Footnote text goes here.
+<td colspan="1" class="confluenceTd">semver tag</td>
 
-Tables can look like this:
+<td colspan="1" class="confluenceTd">NONE</td>
 
-size  material      color
-----  ------------  ------------
-9     leather       brown
-10    hemp canvas   natural
-11    glass         transparent
+<td class="confluenceTd">--bulderVersion=2.5.6</td>
 
-Table: Shoes, their sizes, and what they're made of
+</tr>
 
-(The above is the caption for the table.) Pandoc also supports
-multi-line tables:
+</tbody>
 
---------  -----------------------
-keyword   text
---------  -----------------------
-red       Sunsets, apples, and
-          other red or reddish
-          things.
+</table>
 
-green     Leaves, grass, frogs
-          and other things it's
-          not easy being.
---------  -----------------------
+**  
+Grunt task with params example:**  
 
-A horizontal rule follows.
+The example bellow, should build all assets with the development path and properties and with your assets package on 2.2.2 version.
 
-***
+<table class="wysiwyg-macro" data-macro-name="code" data-macro-parameters="language=bash|linenumbers=true|theme=Midnight|title=Grunt task example" style="background-image: url(/plugins/servlet/confluence/placeholder/macro-heading?definition=e2NvZGU6dGl0bGU9R3J1bnQgdGFzayBleGFtcGxlfHRoZW1lPU1pZG5pZ2h0fGxpbmVudW1iZXJzPXRydWV8bGFuZ3VhZ2U9YmFzaH0&amp;locale=en_GB&amp;version=2); background-repeat: no-repeat;" data-macro-body-type="PLAIN_TEXT">
 
-Here's a definition list:
+<tbody>
 
-apples
-  : Good for making applesauce.
-oranges
-  : Citrus!
-tomatoes
-  : There's no "e" in tomatoe.
+<tr>
 
-Again, text is indented 4 spaces. (Put a blank line between each
-term/definition pair to spread things out more.)
+<td class="wysiwyg-macro-body">
 
-Here's a "line block":
+<pre>grunt build --env=dev --builderVersion=2.2.2</pre>
 
-| Line one
-|   Line too
-| Line tree
+</td>
 
-and images can be specified like so:
+</tr>
 
-![example image](http://vignette2.wikia.nocookie.net/simpsons/images/c/c5/Homer_simpsonwoohooo.gif/revision/latest?cb=20131119164522 "An exemplary image")
+</tbody>
 
-Inline math equations go in like so: $\omega = d\phi / dt$. Display
-math should get its own line and be put in in double-dollarsigns:
+</table>
 
-$$I = \int \rho R^{2} dV$$
+# Common tasks
 
-And note that you can backslash-escape any punctuation characters
-which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
+<span style="color: rgb(0,0,0);">Tasks used for others tasks and process.  
+ </span>
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh">Task name</th>
+
+<th colspan="1" class="confluenceTh"><span style="color: rgb(0,0,0);">Task description</span></th>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">Sub-tasks</span></th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">default</td>
+
+<td colspan="1" class="confluenceTd"><span>Run the default task when call grunt without a task name.</span></td>
+
+<td class="confluenceTd">
+
+<table style="line-height: 1.42857;" class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh"><span>Sub-task name</span></th>
+
+<th class="confluenceTh">sub-task description</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd"><span>watch</span></td>
+
+<td class="confluenceTd"><span>Run predefined tasks whenever watched files change.</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">preCommit</td>
+
+<td colspan="1" class="confluenceTd">
+
+<span>Run when the pre-commit git hook is called</span>
+
+</td>
+
+<td class="confluenceTd">
+
+<table style="line-height: 1.42857;" class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh">Sub-task name</th>
+
+<th class="confluenceTh">sub-task description</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd"><span>jshint</span></td>
+
+<td class="confluenceTd">Validate js with jshint</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd"><span>plato:global</span></td>
+
+<td class="confluenceTd">
+
+Generate complexity analysis reports with plato
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd"><span>karma:desktop</span></td>
+
+<td class="confluenceTd">Karma test runer for desktop scripts device</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd"><span>karma:mobile</span></td>
+
+<td class="confluenceTd"><span>Karma test runer for mobile scripts device</span></td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">notify:test</td>
+
+<td colspan="1" class="confluenceTd">Notify when karma has finished</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">postInstall</td>
+
+<td colspan="1" class="confluenceTd">Run after npm modules has installed</td>
+
+<td colspan="1" class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">Sub-task name</span></th>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">sub-task description</span></th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">clean:hooks</td>
+
+<td class="confluenceTd">Clean all local git hooks</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">shell:environment</td>
+
+<td class="confluenceTd">Install all environments dependencies</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">build:env=dev</td>
+
+<td class="confluenceTd">Run the development build taks</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">preInstall</td>
+
+<td colspan="1" class="confluenceTd"><span>Run before npm modules installation</span></td>
+
+<td colspan="1" class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">Sub-task name</span></th>
+
+<th class="confluenceTh"><span>sub-task description</span></th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">shell:installDependencies</td>
+
+<td class="confluenceTd">Install all app dependencies. (Ex. fontforge)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">test</td>
+
+<td colspan="1" class="confluenceTd">Run karma tests</td>
+
+<td colspan="1" class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh"><span>Sub-task name</span></th>
+
+<th class="confluenceTh">sub-task description</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">karma:desktop</td>
+
+<td class="confluenceTd"><span>Karma test runer for desktop scripts device</span></td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">karma:mobile</td>
+
+<td colspan="1" class="confluenceTd"><span>Karma test runer for mobile scripts device</span></td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">notify:test</td>
+
+<td colspan="1" class="confluenceTd"><span>Notify when karma has finished</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">report</td>
+
+<td colspan="1" class="confluenceTd">Build all analyses and documentation reports</td>
+
+<td colspan="1" class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh">Sub-task name</th>
+
+<th class="confluenceTh">sub-task description</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">karma</td>
+
+<td class="confluenceTd">Karma test runer</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">plato</td>
+
+<td class="confluenceTd"><span>Generate complexity analysis reports with plato</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">yuidoc</td>
+
+<td class="confluenceTd">Generate YUIdocs</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+# Vendor tasks
+
+Tasks to build all vendor assets  
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh">Task name</th>
+
+<th class="confluenceTh">description</th>
+
+<th colspan="1" class="confluenceTh">Sub-tasks</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">buildOmniture</td>
+
+<td class="confluenceTd">Build all omniture scripts</td>
+
+<td colspan="1" class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh">Sub-task name</th>
+
+<th class="confluenceTh">sub-task description</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">concat:desktopOmniture</td>
+
+<td class="confluenceTd">Concat all omniture desktop scripts</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">concat:mobileOmniture</td>
+
+<td class="confluenceTd"><span>Concat all omniture mobile scripts</span></td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">uglify:desktopOmniture</td>
+
+<td colspan="1" class="confluenceTd"><span>Uglify all omniture desktop scripts</span></td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">uglify:mobileOmniture</td>
+
+<td colspan="1" class="confluenceTd"><span>Uglify all omniture mobile scripts</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+# Dist tasks
+
+Table with tasks that give support to build tasks creating our distribution files
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">Task name</span></th>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">description</span></th>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">Sub-tasks</span></th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">dist</td>
+
+<td class="confluenceTd"><span>Create a dist of Webstore assets and templates   
+for all environments  <span>(</span>_qa_<span>,</span> _stg_ <span>and</span> _prod_<span>)</span></span></td>
+
+<td class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">Sub-task name</span></th>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">sub-task description</span></th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">build:scripts</td>
+
+<td class="confluenceTd">Run build tasks to scripts</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">replace:templateEnvironment</td>
+
+<td class="confluenceTd">Replace environment label on script</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">copy:distStaticDesktop</td>
+
+<td class="confluenceTd">Create desktop dist directory for statics</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">copy:distStaticMobile</td>
+
+<td class="confluenceTd"><span>Create mobile dist directory <span>for statics</span></span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">copy:distTemplate</td>
+
+<td class="confluenceTd"><span>Create dist directory</span> <span>for templates</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">replace:stylePathsDesktop</td>
+
+<td class="confluenceTd">Replace styles path on templates for desktop</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">replace:stylePathsMobile</td>
+
+<td class="confluenceTd"><span>Replace styles path on templates for mobile</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">replace:insertTag</td>
+
+<td class="confluenceTd"><span>Replace package version on templates</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">dustjs</td>
+
+<td class="confluenceTd">Compile dust templates for all environments</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">dist:dev</td>
+
+<td class="confluenceTd"><span>Create a dist of Webstore assets and templates</span>   
+<span>for development environment</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">dist:qa</td>
+
+<td class="confluenceTd"><span>Create a dist of Webstore assets and templates</span>   
+<span>for qa environment</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">dist:stg</td>
+
+<td class="confluenceTd"><span>Create a dist of Webstore assets and templates</span>   
+<span>for staging environment</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">dist:prod</td>
+
+<td class="confluenceTd"><span>Create a dist of Webstore assets and templates</span>   
+<span>for production environment</span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+# Build tasks
+
+Table with all tasks that should build Webstore assets  
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh">Task name</th>
+
+<th class="confluenceTh">description</th>
+
+<th colspan="1" class="confluenceTh">Sub-tasks</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">build</td>
+
+<td class="confluenceTd">Build Webstore assets and templates</td>
+
+<td colspan="1" class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh">Sub-task name</th>
+
+<th class="confluenceTh">sub-task description</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">build:desktop</td>
+
+<td class="confluenceTd"><span>Build all Webstore assets and templates for desktop device</span></td>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">build:mobile</td>
+
+<td class="confluenceTd"><span>Build all Webstore assets and templates for mobile device</span></td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">dist</td>
+
+<td colspan="1" class="confluenceTd">Generate dist folder with built files</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" class="confluenceTd">buildAssets</td>
+
+<td colspan="1" class="confluenceTd">Run build task for all environments (_qa_, _stg_ and _prod_)</td>
+
+<td colspan="1" class="confluenceTd">
+
+<table class="confluenceTable">
+
+<tbody>
+
+<tr>
+
+<th class="confluenceTh"><span style="color: rgb(0,0,0);">Sub-task name</span></th>
+
+<th class="confluenceTh">sub-task description</th>
+
+</tr>
+
+<tr>
+
+<td class="confluenceTd">shell:buildAssets</td>
+
+<td class="confluenceTd"><span>Run build task for all environments <span>(</span>_qa_<span>,</span> _stg_ <span>and</span> _prod_<span>)</span></span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<div><span style="white-space: pre-wrap;">  
+</span></div>
