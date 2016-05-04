@@ -7,6 +7,7 @@ body {
   overflow-x: hidden;
   * {
     font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
   *, *:before, *:after {
     box-sizing: border-box;
@@ -25,6 +26,12 @@ body {
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+
+  .blur {
+    filter: blur(2px) opacity(0.9);
+    -webkit-filter: blur(2px) opacity(0.9);
+    overflow: hidden;
+  }
 
   &.page {
     height: 100vh;

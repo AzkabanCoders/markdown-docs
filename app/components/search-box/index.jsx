@@ -26,22 +26,28 @@ var getResultText = (text, textSize, terms) => {
   return highlightText(terms, Utils.content.htmlToText(text|| "").substring(0, textSize));
 };
 
+
+
 class ResultItem extends Component {
   render() {
+    var handlerClick = (e) => {
+      this.setState({
+        isSearching: false
+      });
+    };
+
     let data = this.props.data,
         textSize = this.props.resultTextSize,
         highlightTerms = this.props.highlightTerms;
     return (
       <li className="search-result-item">
-        <Link to={Constants.MENU_BASEPATH + data.section.toLowerCase() + "/" + data.id}>
+        <Link to={Constants.MENU_BASEPATH + data.section.toLowerCase() + "/" + data.id} onClick={handlerClick} refs="resultItem">
         <div className="search-result-details">
           <span className="section">{data.section}</span>
           <span className="section"> - {data.title}</span>
         </div>
         <span className="title">{data.title}</span>
-        <span className="description" dangerouslySetInnerHTML={
-            {__html:getResultText(data.contents, textSize, highlightTerms)}
-          }></span>
+        <span className="description">{data.description}</span>
         </Link>
       </li>
     );
@@ -61,19 +67,6 @@ class Results extends Component {
     this.setState({
       visibility: this.props.visibility
     });
-    var that = this;
-
-    document.getElementsByClassName("search-box-result")[0].onmouseover = function() {
-      that.setState({
-        visibility: true
-      });
-    }
-
-    document.getElementsByClassName("search-box-result")[0].onmouseleave = function() {
-      that.setState({
-        visibility: false
-      });
-    }
   }
 
   render() {
@@ -113,6 +106,38 @@ class SearchBox extends Component {
     };
   }
 
+  componentDidMount() {
+    var contentContainer =  document.getElementById("main-content"),
+        that = this;
+
+    if(this.state.isSearching) {
+      contentContainer.className = contentContainer.className.replace(/\sblur/g, "") + " blur";
+    } else {
+      contentContainer.className = contentContainer.className.replace(/\sblur/g, "");
+    }
+
+    document.onkeydown = function(e) {
+      if (e.keyCode == 27) {
+        that.setState({
+          isSearching: false
+        });
+      }
+    }
+  }
+
+  componentDidUpdate() {
+    var searchItems = document.getElementsByClassName("search-result-item"),
+        that = this;
+    for(var i = 0; i < searchItems.length; i++) {
+      searchItems[i].onclick = function() {
+        that.setState({
+          isSearching: false,
+          classNames: ""
+        });
+      }
+    }
+  }
+
   render() {
     var filteredData = Utils.content.search(this.props.data, this.state.terms) || [],
         terms = this.state.terms,
@@ -124,28 +149,16 @@ class SearchBox extends Component {
       this.setState({
         isSearching: true,
         terms: event.target.value.replace(/\s+/g," ").split(" "),
-        results: filteredData
+        results: filteredData,
+        classNames: this.state.isSearching && this.props.overlay ? "overlay" : ""
       });
     };
-
-    var handleFocus = (event) => {
-      this.setState({
-        isSearching: true
-      });
-    };
-
-    var handleBlur = (event) => {
-      this.setState({
-        isSearching: false
-      });
-    };
-
 
     return (
-      <div className="search-box">
+      <div className={`search-box ${this.state.classNames}`}>
         <div className="search-wrapper">
           <SVGInline svg={Icon} className="icon-search" fill="#FFF" cleanup={true} height="22px"/>
-          <input type="search" placeholder="Search..." onChange={handleChange} onBlur={handleBlur} />
+          <input type="search" className="searchInput" placeholder="Search..." onChange={handleChange} autoFocus />
         </div>
         <Results data={this.state.results} visibility={this.state.isSearching} resultTextSize={500} highlightTerms={this.state.terms} />
       </div>

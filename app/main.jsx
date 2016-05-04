@@ -49,7 +49,7 @@ class Base extends Component {
     var childrenWithProps = React.Children.map(this.props.children, (child) => {
         return React.cloneElement(child, {
           app:this.state.app,
-          data: data 
+          data: data
         });
     });
 
@@ -57,7 +57,7 @@ class Base extends Component {
     return (
       <div className="wrapper page">
         <Header id="header" logo={this.state.app.logo} data={this.state.data} />
-        <div className="wrapper flex-row">
+        <div id="main-content" className="wrapper flex-row">
           <Sidebar id="side-bar-menu-left" className="menu-left noselect left" >
             <AppName className="app-name" label={this.state.app.name} />
             <MenuVertical className="menu-list vertical" data={this.state.menu} />

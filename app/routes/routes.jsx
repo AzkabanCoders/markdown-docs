@@ -13,9 +13,9 @@ var history = createHashHistory({
 
 export default (
   <Router history={history}>
-      <Route path='/' component={ComponentPage}/>
-      <Route path='/docs/:componentId' component={ComponentPage}/>
-      <Route path='/docs/:section/:componentId' component={ComponentPage}/>
+      <Route path='/' component={ComponentPage}>
+        <Route path='docs/:section/:componentId' component={ComponentPage}/>
+      </Route>
     <Route path='*' component={ErrorPage} />
   </Router>
 );
