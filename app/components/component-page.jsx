@@ -26,7 +26,7 @@ var setIframeContent = (IframeComponent) => {
   // Setting height of iframe from atual content's height frame
   setTimeout(() => {
     let iframeHeight = iframeBody.children[0].offsetHeight;
-    iframe.height = iframeHeight + 20;    
+    iframe.height = iframeHeight + 20;
   }, 50);
 };
 
@@ -37,9 +37,12 @@ class ComponentPageContent extends Component {
 
   render() {
     // Data props comes from Main context
-    let data = Utils.content.get(this.props.data, this.props.contentId),
+    let contentId = this.props.contentId,
+        data = Utils.content.get(this.props.data, contentId),
         styles = data.styles || [],
         scripts = data.scripts || [];
+
+        console.log("bbb", contentId);
 
         styles = styles.concat([
             "https://highlightjs.org/static/demo/styles/github.css",
@@ -68,7 +71,7 @@ class ContentIframe extends Component {
   }
 
   render() {
-    IframeContent =  <ComponentPageContent contentId={this.props.contentId} data={this.props.data}/>
+    IframeContent =  <ComponentPageContent contentId={this.props.contentId || this.props.app.home || ""} data={this.props.data}/>
     return (
       <iframe id="content-frame" frameBorder={0} scrolling="no" seamless="seamless" width="100%" height="500px"></iframe>
     );

@@ -47,7 +47,10 @@ class Base extends Component {
   render() {
     let data = this.state.data;
     var childrenWithProps = React.Children.map(this.props.children, (child) => {
-        return React.cloneElement(child, { data: data });
+        return React.cloneElement(child, {
+          app:this.state.app,
+          data: data 
+        });
     });
 
 
