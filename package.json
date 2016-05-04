@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "parseMarkdown": "node lib/build",
-    "start": "node lib/build && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
+    "start": "node ./lib/reactdocs -c reactdocs.json --compile && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
     "build": "node lib/build && webpack --content-base app/  --progress",
     "lint": "eslint . --ext .js --ext .jsx",
     "watch": "node node_modules/npm-watch/cli.js"

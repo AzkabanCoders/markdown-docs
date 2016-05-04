@@ -59,6 +59,46 @@ body {
     user-select: none;
 }
 
+p:empty {
+  display: none;
+}
+
+table {
+  padding: 0;
+  border-collapse: collapse;
+  tr {
+    border-top: 1px solid $table-border-color;
+    background-color: $table-bg-color;
+    margin: 0;
+    padding: 0;
+    &:nth-child(1) {
+      background-color: $table-header-bg-color;
+    }
+  }
+  th {
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid $table-border-color;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+  }
+  td {
+    border: 1px solid $table-border-color;
+    text-align: left;
+    margin: 0;
+    padding: 7px 13px;
+    font-weight: 300;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  th:first-child, td:first-child {
+    margin-top: 0;
+  }
+  th:last-child, td:last-child {
+    margin-bottom: 0;
+  }
+}
 
 *::selection {
   background-color: $selection-bg-color;
