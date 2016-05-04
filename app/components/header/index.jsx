@@ -27,7 +27,7 @@ class Header extends Component {
         <h1 className="logo">
           <ImageLoader src={this.props.logo} href="/#/" height="40" />
         </h1>
-        <SearchBox autocomplete={true} data={this.state.data} />
+        <SearchBox autocomplete={true} overlay={true} data={this.state.data} />
       </header>
     );
   }

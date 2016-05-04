@@ -3,6 +3,12 @@
 $search-result-box-height: 400px;
 $search-result-box-width: 600px;
 
+.overlay {
+  .search-box-result {
+    display: block;
+  }
+}
+
 .search-box-result {
   position: absolute;
   background: $color-seashell-2;
@@ -13,6 +19,8 @@ $search-result-box-width: 600px;
   top: 53px;
   border-radius: 2px;
   box-shadow: -1px 4px 5px 0px $color-nobel;
+  display: none;
+
   &:after {
     content: "";
     border-width: 10px;
@@ -22,6 +30,7 @@ $search-result-box-width: 600px;
     top: -20px;
     right: 304px;
   }
+
   &.hide {
     display: none;
   }

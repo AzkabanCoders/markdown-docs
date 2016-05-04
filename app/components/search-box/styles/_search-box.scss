@@ -5,7 +5,7 @@
   height: 58px;
   // box-shadow: -1px 0px 0px $color-curious-blue, inset 1px 0px 0px $color-azure;
   padding: 0 10px;
-  text-align: center;
+  text-align: center;  
 
   .search-wrapper {
     overflow: auto;
@@ -19,7 +19,7 @@
     left: 5px;
     svg {
       fill: $color-buttercup;
-    }    
+    }
   }
 
   input[type="search"] {
@@ -35,7 +35,7 @@
     letter-spacing: 0.5px;
     outline-style: none;
     padding-left: 25px;
-    transition: all .4s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    // transition: all .4s cubic-bezier(0.6, -0.28, 0.74, 0.05);
 
     // &:focus{
     //   width: 330px;
@@ -59,5 +59,100 @@
 
   input[type="search"]::-webkit-search-cancel-button {
     margin-right: 10px;
+  }
+
+  &.overlay {
+    position: absolute;
+    background: $overlay-color;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+
+    .search-wrapper {
+      top: 164px;
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    input[type="search"] {
+      height: 80px;
+      width: 100%;
+      background-color: transparent;
+      border-radius: 60px;
+      padding-left: 45px;
+      font-size: 40px;
+    }
+
+    .icon-search {
+      top: 29px;
+      left: 15px;
+    }
+
+    .search-box-result {
+      position: absolute;
+      border: 0;
+      width: 100%;
+      max-width: 60%;
+      top: 243px;
+      border-radius: 2px;
+      left: 20%;
+      height: 50vh;
+      overflow: hidden;
+      box-shadow: 0 0 0;
+      background-color: transparent;
+
+      .search-box-header {
+        background: transparent;
+        font-weight: 700;
+        border-bottom: 0;
+        color: $color-buttercup;
+      }
+
+      .search-result {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-align: left;
+        max-height: 86%;
+        overflow-y: auto;
+      }
+
+      .search-result-item {
+        background: transparent;
+        border: 0;
+
+        a {
+          color: $color-white;
+
+          .search-result-details {
+            font-weight: 700;
+            font-size: 18px;
+          }
+
+          .description {
+            margin: 0 9px;
+            font-size: 13px;
+            font-weight: 500;
+            color: $color-tropical-blue;
+          }
+
+          &:hover {
+            .search-result-details {
+              color: $color-buttercup;
+            }
+            .description {
+              color: $color-tropical-blue;
+            }
+          }
+        }
+
+        .search-result-details {
+          background-color: transparent;
+          border-bottom: 0;
+          padding: 7px;
+          font-weight: 400;
+        }
+      }
+    }
   }
 }
