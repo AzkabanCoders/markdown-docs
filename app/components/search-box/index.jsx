@@ -110,11 +110,13 @@ class SearchBox extends Component {
     var contentContainer =  document.getElementById("main-content"),
         that = this;
 
-    if(this.state.isSearching) {
-      contentContainer.className = contentContainer.className.replace(/\sblur/g, "") + " blur";
-    } else {
-      contentContainer.className = contentContainer.className.replace(/\sblur/g, "");
-    }
+    // if (this.state.isSearching) {
+    //   Array.prototype.slice.call(document.getElementsByClassName("no-filter")).map(function(elem) {
+    //     elem.classList.add("blur");
+    //   });
+    // } else {
+    //   elem.classList.remove("blur");
+    // }
 
     document.onkeydown = function(e) {
       if (e.keyCode == 27) {

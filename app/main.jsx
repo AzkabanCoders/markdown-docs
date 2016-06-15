@@ -7,10 +7,11 @@ import Utils from "./utils";
 
 // Components
 import Header from './components/header';
+import Footer from './components/footer';
 import Sidebar from './components/sidebar';
 import MenuVertical from './components/menu-vertical';
 import MainContent from './components/main-content';
-import AppName from './components/utils/app-name';
+import SearchBox from "./components/search-box";
 // Styles
 import style_main from './styles/_base';
 import style_appName from './styles/commons/_app-name';
@@ -55,17 +56,18 @@ class Base extends Component {
 
 
     return (
-      <div className="wrapper page">
+      <div className="page">
         <Header id="header" logo={this.state.app.logo} data={this.state.data} />
-        <div id="main-content" className="wrapper flex-row">
-          <Sidebar id="side-bar-menu-left" className="menu-left noselect left" >
-            <AppName className="app-name" label={this.state.app.name} />
+        <div id="main-content" className="main-content page-wrapper">
+          <Sidebar id="side-bar-menu-left" className="menu-left sidebar noselect left" >
+            <SearchBox autocomplete={true} overlay={true} data={this.state.data} />
             <MenuVertical className="menu-list vertical" data={this.state.menu} />
           </Sidebar>
           <MainContent>
             {childrenWithProps}
           </MainContent>
         </div>
+        <Footer />
       </div>
     );
   }

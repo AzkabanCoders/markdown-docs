@@ -52,7 +52,7 @@ class Menu extends Component {
   render() {
     var menuData = this.state.items;
     return (
-      <ul id={this.props.id} className={"menu-list " + this.props.className}>
+      <ul id={this.props.id} className={"menu-list no-filter " + this.props.className || ""}>
         {
         Object.keys(menuData).map(function(result) {
            return <MenuSection key={result} label={result} data={menuData[result]}/>;

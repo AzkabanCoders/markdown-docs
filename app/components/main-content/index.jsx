@@ -16,7 +16,7 @@ class MainContent extends Component {
         classNames = this.props.className || "";
 
     return (
-      <div id={this.props.id} className={"main-content " + classNames + shouldCollapse}>
+      <div id={this.props.id} className={"main-content no-filter " + classNames + shouldCollapse}>
         {this.props.children}
       </div>
     );

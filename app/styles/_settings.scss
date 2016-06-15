@@ -12,6 +12,11 @@ $overlay-color: $color-black-pearl;
 $header-height: 60px;
 $header-width: 100%;
 
+//  Footer
+$footer-height: 40px;
+$footer-width: 100%;
+$footer-bg-color: $base-bg-color;
+
 // Sidebar
 $sidebar-width: 18%;
 $sidebar-height: auto;
@@ -29,7 +34,7 @@ $menu-vertical-item-font-size: 16px;
 
 //  Main
 $main-content-translate: 18%;
-$main-content-max-width: 1050px;
+$main-content-max-width: 1800px;
 
 // table
 $table-border-color: $color-iron;

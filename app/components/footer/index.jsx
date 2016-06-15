@@ -1,10 +1,9 @@
 "use strict";
 
 import React, {Component} from "react";
-import css from "./styles/_header";
-import ImageLoader from "../utils/image-loader";
+import css from "./styles/_footer";
 
-class Header extends Component {
+class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,15 +21,13 @@ class Header extends Component {
 
   render() {
     return (
-      <header id={this.props.id} className='noselect'>
+      <div id="footer" className="footer">
         <div className="page-wrapper">
-          <h1 className="logo">
-            <ImageLoader src={this.props.logo} href="/#/" height="40" />
-          </h1>
+          <span className="app-version">AppDocs v1.5.0</span>
         </div>
-      </header>
+      </div>
     );
   }
 }
 
-export default Header;
+export default Footer;

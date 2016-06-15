@@ -16,6 +16,6 @@ export default (
       <Route path='/' component={ComponentPage}>
         <Route path='docs/:section/:componentId' component={ComponentPage}/>
       </Route>
-    <Route path='*' component={ErrorPage} />
+      <Route path='*' component={ErrorPage} />
   </Router>
 );

@@ -7,7 +7,7 @@
       "src": "lib/sample",
       "home": "readme-default",
       "filePattern": "**/*.md",
-      "dist": "/Users/kfaria/Sites/walmart/reactdocs/dist"
+      "dist": "/Users/kfaria/Sites/walmart/reactdocs/app/dist"
     },
     "data": [
       {
