@@ -6,7 +6,7 @@ $base-font-color: $color-black;
 $base-border-color: $color-black-12;
 $selection-bg-color: $color-azure-transparent;
 $selection-font-color: $bg-color;
-$overlay-color: $color-black-pearl;
+$overlay-color: $color-azure-transparent-low;
 
 //  Header
 $header-height: 60px;
@@ -40,3 +40,6 @@ $main-content-max-width: 1800px;
 $table-border-color: $color-iron;
 $table-header-bg-color: $color-seashell-2;
 $table-bg-color: $color-white;
+
+// syntax-highlight
+$syntax-bg-color: $color-oxford-blue;

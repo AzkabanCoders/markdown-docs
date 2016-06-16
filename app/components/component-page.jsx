@@ -40,10 +40,10 @@ class ComponentPageContent extends Component {
     let contentId = this.props.contentId,
         data = Utils.content.get(this.props.data, contentId),
         styles = data.styles || [],
-        scripts = data.scripts || [];        
+        scripts = data.scripts || [];
 
         styles = styles.concat([
-            "https://highlightjs.org/static/demo/styles/github.css",
+            "https://highlightjs.org/static/demo/styles/zenburn.css",
             "./css/app.css"
           ]);
 
