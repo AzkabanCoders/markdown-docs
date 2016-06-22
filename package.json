@@ -1,6 +1,6 @@
 {
   "name": "reactdocs",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "A web document tool basead in markdown files data. [react + webpack + es2015 (babel)]",
   "main": "bin/index.js",
   "author": "Klayton Faria <klayton.souza@gmail.com>",
@@ -10,12 +10,12 @@
   },
   "scripts": {
     "parseMarkdown": "node lib/build",
-    "start":  "node ./lib/reactdocs  --config ./reactdocs.json && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
+    "start": "node ./lib/reactdocs  --config ./reactdocs.json && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
     "server": "node ./lib/reactdocs  --config ./reactdocs.json --compile --server",
-    "build":  "node ./lib/reactdocs  --config ./reactdocs.json --compile"
+    "build": "node ./lib/reactdocs  --config ./reactdocs.json --compile"
   },
   "parseMarkdown": {
-  "watch": {
+    "watch": {
       "patterns": [
         "**/*"
       ],
