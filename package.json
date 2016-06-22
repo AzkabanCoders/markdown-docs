@@ -5,10 +5,14 @@
   "main": "bin/index.js",
   "author": "Klayton Faria <klayton.souza@gmail.com>",
   "license": "ISC",
+  "bin": {
+    "reactdocs": "./bin/index"
+  },
   "scripts": {
     "parseMarkdown": "node lib/build",
-    "start": "node ./lib/reactdocs -c reactdocs.json && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
-    "build": "node lib/build && webpack --content-base app/  --progress"
+    "start":  "node ./lib/reactdocs  --config ./reactdocs.json && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
+    "server": "node ./lib/reactdocs  --config ./reactdocs.json --compile --server",
+    "build":  "node ./lib/reactdocs  --config ./reactdocs.json --compile"
   },
   "parseMarkdown": {
   "watch": {
