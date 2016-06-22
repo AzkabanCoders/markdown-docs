@@ -5,5 +5,5 @@
   "src": "lib/sample",
   "home": "readme-default.md",
   "filePattern": "**/*.md",
-  "dist": "/Users/kfaria/Sites/walmart/reactdocs/app/dist"
+  "dist": "/app/walmart-frontend/frontend-wiki/public"
 }
