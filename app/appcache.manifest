@@ -1,0 +1,21 @@
+CACHE MANIFEST
+
+
+CACHE:
+
+./index.html
+./css/app.css
+./js/app.js
+./js/vendor.bundle.js
+./resources/data.json
+./resources/images/global/logo.png
+./resources/images/global/logo.svg
+./resources/images/svg/search.svg
+./resources/images/global/icon.png
+
+NETWORK:
+*
+
+
+SETTINGS:
+prefer-online
