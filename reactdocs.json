@@ -1,9 +1,9 @@
 {
   "name": "Webstore.styleguides",
-  "logo": "resources/images/global/logo.svg",
-  "cwd": "/Users/kfaria/Sites/walmart/reactdocs/",
+  "logo": "resources/images/global/logo.png",
+  "cwd": "./",
   "src": "lib/sample",
   "home": "readme-default.md",
   "filePattern": "**/*.md",
-  "dist": "/app/walmart-frontend/frontend-wiki/public"
+  "dist": "./public"
 }

@@ -1,4 +1,4 @@
-# Walmart.com webstore builder
+# AzkabanStore.com webstore builder
 
 This repository has a set of build configurations and all of your source consists in submodules repositories.
 
@@ -88,8 +88,8 @@ assets
 To clone the main repository and all of your submodules, type the code on terminal:
 
 ```sh
-mkdir -p /app/walmart-frontend/
-cd /app/walmart-frontend/
+mkdir -p /app/AzkabanStore-frontend/
+cd /app/AzkabanStore-frontend/
 git clone --recursive https://gitlab.wmxp.com.br/webstore-frontend/webstore.git
 ```
 
@@ -133,17 +133,17 @@ rm -rf path/to/submodule
 
 ### Updating submodules
 ```sh
-cd /app/walmart-frontend/webstore
+cd /app/AzkabanStore-frontend/webstore
 git submodule update --init --recursive
 ```
 
 ### Updating submodules flow
 * Make the commit on submodule repository and push it to remote branch
 * Create npm tag on submodule repository (semver)
-* Go to webstore repository (/app/walmart-frontend/webstore) and commit (and push) the new submodule commit reference
+* Go to webstore repository (/app/AzkabanStore-frontend/webstore) and commit (and push) the new submodule commit reference
 
 ```sh
-cd /app/walmart-frontend/webstore/assets/components/checkout
+cd /app/AzkabanStore-frontend/webstore/assets/components/checkout
 git add some-file.js
 git commit -m "Creating your commit message"
 git push origin master
