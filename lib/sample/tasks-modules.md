@@ -4,7 +4,7 @@ title: Tasks and modules
 description: All of Grunt tasks and modules used on Webstore app
 ---
 
-All of our grunt tasks are registered by yaml pattern (founds on /app/walmart-frontend/webstore/config/grunt/aliases.yaml). Follow bellow the table with all registered tasks:
+All of our grunt tasks are registered by yaml pattern (founds on /app/AzkabanStore-frontend/webstore/config/grunt/aliases.yaml). Follow bellow the table with all registered tasks:
 
 # Environment variables
 

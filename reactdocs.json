@@ -1,6 +1,6 @@
 {
   "name": "Webstore.styleguides",
-  "logo": "resources/images/global/logo.svg",
+  "logo": "resources/images/global/icon.png",
   "cwd": "/Users/kfaria/Sites/walmart/reactdocs/",
   "src": "lib/sample",
   "home": "readme-default.md",
