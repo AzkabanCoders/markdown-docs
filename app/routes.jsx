@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route} from 'react-router/umd/ReactRouter';
+import {Router, Route, useRouterHistory} from 'react-router/umd/ReactRouter';
 import {createHashHistory} from 'history';
 
 // Components
@@ -7,7 +7,7 @@ import ComponentPage from './components/component-page';
 import IndexPage from './components/index-page';
 import ErrorPage from './components/error-page';
 
-var history = createHashHistory({
+var history = useRouterHistory(createHashHistory)({
   queryKey: false
 });
 
