@@ -8,7 +8,6 @@ import Scripts from "./utils/scripts-loader";
 import Highlight from "react-highlight";
 
 // Components
-import Main from '../main';
 var IframeContent;
 
 var setIframeContent = (IframeComponent) => {
@@ -82,15 +81,13 @@ class ComponentPage extends Component {
   }
 
   // If id is not the same than previous should update the component
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.params.componentId !== this.props.params.componentId;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return nextProps.params.componentId !== this.props.params.componentId;
+  // }
 
   render() {
     return (
-      <Main>
-        <ContentIframe contentId={this.props.params.componentId} />
-      </Main>
+        <ComponentPageContent contentId={this.props.params.componentId || this.props.app.home || ""} data={this.props.data}/>
     );
   }
 
