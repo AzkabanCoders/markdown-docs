@@ -5,5 +5,5 @@
   "src": "lib/sample",
   "home": "readme-default.md",
   "filePattern": "**/*.md",
-  "dist": "./public"
+  "dist": "./docs"
 }
