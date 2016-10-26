@@ -2,7 +2,9 @@
   "data": {
     "app": {
       "name": "Webstore.styleguides",
-      "logo": "resources/images/global/logo.png",
+      "logo": "resources/images/svg/logo.svg",
+      "url": "https://azkabancoders.github.io/markdown-docs/index",
+      "repository": "https://github.com/AzkabanCoders/markdown-docs",
       "cwd": "./",
       "src": "lib/sample",
       "home": "readme-default",

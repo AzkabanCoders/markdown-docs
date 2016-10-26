@@ -48763,13 +48763,13 @@ webpackJsonp([0],[
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'page' },
-	        _react2.default.createElement(_header2.default, { id: 'header', logo: this.state.app.logo, data: this.state.data }),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'main-content', className: 'main-content page-wrapper' },
 	          _react2.default.createElement(
 	            _sidebar2.default,
 	            { id: 'side-bar-menu-left', className: 'menu-left sidebar noselect left' },
+	            _react2.default.createElement(_header2.default, { id: 'header', logo: this.state.app.logo, data: this.state.data }),
 	            _react2.default.createElement(_searchBox2.default, { autocomplete: true, overlay: true, data: this.state.data }),
 	            _react2.default.createElement(_menuVertical2.default, { className: 'menu-list vertical', data: this.state.menu })
 	          ),
@@ -48856,7 +48856,7 @@ webpackJsonp([0],[
 	          _react2.default.createElement(
 	            "h1",
 	            { className: "logo" },
-	            _react2.default.createElement(_imageLoader2.default, { src: this.props.logo, href: "/#/", height: "40" })
+	            _react2.default.createElement(_imageLoader2.default, { src: this.props.logo, href: "./#/", height: "25" })
 	          )
 	        )
 	      );

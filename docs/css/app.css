@@ -1,7 +1,7 @@
 header {
   height: 60px;
   width: 100%;
-  background-color: #1A75CE;
+  background-color: #607D8B;
   border-bottom: 1px solid #145EA7;
   position: relative;
   z-index: 99;
@@ -42,7 +42,7 @@ header {
   list-style: none;
   padding: 0 10px 0 0;
   margin: 0;
-  height: calc(100% - 50px);
+  height: calc(100% - 111px);
   overflow-y: auto; }
   .menu-list a {
     color: rgba(0, 0, 0, 0.55);
@@ -71,14 +71,15 @@ header {
     padding: 5px 15px;
     font-size: 20px; }
 .sidebar.left + .main-content {
-  border-left: 0; }
+  border-left: 0;
+  border-bottom: 0; }
 
 .sidebar.right + .main-content {
   border-right: 0;
   border-bottom: 0; }
 
 .main-content {
-  height: calc(100vh - 111px);
+  height: calc(100vh - 50px);
   max-height: 100%;
   background: #FBFBFB;
   border-left: 1px solid rgba(0, 0, 0, 0.12);
