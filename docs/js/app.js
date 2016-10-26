@@ -48996,7 +48996,7 @@ webpackJsonp([0],[
 	            "span",
 	            { className: "app-version" },
 	            this.state.app.name,
-	            " ",
+	            " v",
 	            this.state.app.version
 	          )
 	        )
