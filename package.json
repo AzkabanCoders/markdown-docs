@@ -13,15 +13,7 @@
     "start": "node ./lib/reactdocs  --config ./reactdocs.json && webpack-dev-server --content-base app/  -w --port 3000 --progress --quiet --watch",
     "server": "node ./lib/reactdocs  --config ./reactdocs.json --compile --server",
     "build": "node ./lib/reactdocs  --config ./reactdocs.json --compile"
-  },
-  "parseMarkdown": {
-    "watch": {
-      "patterns": [
-        "**/*"
-      ],
-      "extensions": "md"
-    }
-  },
+  },  
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
