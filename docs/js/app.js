@@ -48779,7 +48779,7 @@ webpackJsonp([0],[
 	            childrenWithProps
 	          )
 	        ),
-	        _react2.default.createElement(_footer2.default, null)
+	        _react2.default.createElement(_footer2.default, { data: this.state.app })
 	      );
 	    }
 	  }]);
@@ -48969,7 +48969,7 @@ webpackJsonp([0],[
 	    var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 	
 	    _this.state = {
-	      data: []
+	      app: {}
 	    };
 	    return _this;
 	  }
@@ -48979,7 +48979,7 @@ webpackJsonp([0],[
 	    value: function componentDidUpdate(prevProps, prevState) {
 	      if (prevProps.data !== this.props.data) {
 	        this.setState({
-	          data: this.props.data
+	          app: this.props.data
 	        });
 	      }
 	    }
@@ -48995,7 +48995,9 @@ webpackJsonp([0],[
 	          _react2.default.createElement(
 	            "span",
 	            { className: "app-version" },
-	            "AppDocs v1.5.0"
+	            this.state.app.name,
+	            " ",
+	            this.state.app.version
 	          )
 	        )
 	      );

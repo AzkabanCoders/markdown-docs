@@ -7,14 +7,14 @@ class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      app: {}
     };
   }
 
   componentDidUpdate(prevProps, prevState) {
     if(prevProps.data !== this.props.data) {
       this.setState({
-        data: this.props.data
+        app: this.props.data
       });
     }
   }
@@ -23,7 +23,7 @@ class Footer extends Component {
     return (
       <div id="footer" className="footer">
         <div className="page-wrapper">
-          <span className="app-version">AppDocs v1.5.0</span>
+          <span className="app-version">{this.state.app.name} v{this.state.app.version}</span>
         </div>
       </div>
     );

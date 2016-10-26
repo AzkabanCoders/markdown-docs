@@ -67,7 +67,7 @@ class Base extends Component {
             {childrenWithProps}
           </MainContent>
         </div>
-        <Footer />
+        <Footer data={this.state.app} />
       </div>
     );
   }

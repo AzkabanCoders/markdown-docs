@@ -9,7 +9,8 @@
       "src": "lib/sample",
       "home": "readme-default",
       "filePattern": "**/*.md",
-      "dist": "./docs"
+      "dist": "./docs",
+      "version": "1.9.0"
     },
     "data": [
       {
