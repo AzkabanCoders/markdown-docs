@@ -25,7 +25,7 @@ class Header extends Component {
       <header id={this.props.id} className='noselect'>
         <div className="page-wrapper">
           <h1 className="logo">
-            <ImageLoader src={this.props.logo} href="/#/" height="40" />
+            <ImageLoader src={this.props.logo} href="./#/" height="25" />
           </h1>
         </div>
       </header>

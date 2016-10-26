@@ -57,9 +57,9 @@ class Base extends Component {
 
     return (
       <div className="page">
-        <Header id="header" logo={this.state.app.logo} data={this.state.data} />
         <div id="main-content" className="main-content page-wrapper">
           <Sidebar id="side-bar-menu-left" className="menu-left sidebar noselect left" >
+            <Header id="header" logo={this.state.app.logo} data={this.state.data} />
             <SearchBox autocomplete={true} overlay={true} data={this.state.data} />
             <MenuVertical className="menu-list vertical" data={this.state.menu} />
           </Sidebar>

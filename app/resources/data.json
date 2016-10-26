@@ -2,7 +2,7 @@
   "data": {
     "app": {
       "name": "Webstore.styleguides",
-      "logo": "resources/images/global/logo.png",
+      "logo": "resources/images/svg/logo.svg",
       "cwd": "./",
       "src": "lib/sample",
       "home": "readme-default",
@@ -57,19 +57,19 @@
       },
       {
         "section": "Globals",
-        "title": "utils [js]",
-        "date": "2012-12-07T00:00:00.000Z",
-        "device": "desktop, tablet",
-        "contents": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam aspernatur et natus saepe fugiat, eligendi veniam temporibus accusamus molestiae expedita unde? Totam necessitatibus odit consequatur fugit voluptatem, accusamus qui, voluptas.</p>\n",
-        "id": "globals__js-utils"
-      },
-      {
-        "section": "Globals",
         "title": "sass reset",
         "date": "2012-12-07T00:00:00.000Z",
         "device": "desktop, tablet",
         "contents": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam aspernatur et natus saepe fugiat, eligendi veniam temporibus accusamus molestiae expedita unde? Totam necessitatibus odit consequatur fugit voluptatem, accusamus qui, voluptas.</p>\n",
         "id": "globals__sass-reset"
+      },
+      {
+        "section": "Globals",
+        "title": "utils [js]",
+        "date": "2012-12-07T00:00:00.000Z",
+        "device": "desktop, tablet",
+        "contents": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam aspernatur et natus saepe fugiat, eligendi veniam temporibus accusamus molestiae expedita unde? Totam necessitatibus odit consequatur fugit voluptatem, accusamus qui, voluptas.</p>\n",
+        "id": "globals__js-utils"
       },
       {
         "section": "Globals",
